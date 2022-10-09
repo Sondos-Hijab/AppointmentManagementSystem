@@ -2,10 +2,12 @@ package testCode;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import mainCode.MainLoginClass;
@@ -20,7 +22,8 @@ public class loginStepsClass {
 	MainLoginClass loginClass5 = new MainLoginClass();
 	MainLoginClass loginClass6 = new MainLoginClass();
 	
-	List<user> listOfUsers = loginClass1.getListOfUsers();
+	static List<user> listOfUsers = new ArrayList<user>();
+	List<List<String>> usersList;
 	
 	static Boolean case1 = false;
 	static Boolean case2 = false;
@@ -56,6 +59,18 @@ public class loginStepsClass {
 	String case6Type = "employee";
 	
 	
+	
+	@Given("the data table for existing users")
+	public void theDataTableForExistingUsers(io.cucumber.datatable.DataTable dataTable) {
+		usersList = dataTable.asLists();	
+		for(int i=1;i<usersList.size();i++) {
+			 user temp = new user(usersList.get(i).get(0).toString(), usersList.get(i).get(1).toString(),usersList.get(i).get(2).toString()); 
+			 listOfUsers.add(temp);
+		}
+		
+
+	}
+	
 	//wrong password
 	@When("I type right username, wrong password and select the right user type")
 	public void iTypeRightUsernameWrongPasswordAndSelectTheRightUserType() {
@@ -78,6 +93,7 @@ public class loginStepsClass {
 	}
 	@Then("I should see password is incorrect")
 	public void iShouldSeePasswordIsIncorrect() {
+
 	    // Write code here that turns the phrase above into concrete actions
 		if(case1 == true) {
 			System.out.println("Case1: Password is incorrect");

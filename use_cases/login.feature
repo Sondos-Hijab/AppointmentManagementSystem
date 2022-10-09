@@ -4,6 +4,11 @@ Feature: Login
 
 
   Scenario: Wrong password
+	Given the data table for existing users
+		|name | password | type |
+		|Sondos | sondos1234 | admin |
+		|Sama | sama1234 |user |
+		|Raghad |  raghad1234 |employee|
     When I type right username, wrong password and select the right user type
     Then I should see password is incorrect
     
