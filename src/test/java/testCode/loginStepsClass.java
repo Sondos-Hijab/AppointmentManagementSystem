@@ -11,7 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import mainCode.MainLoginClass;
-import mainCode.user;
+import mainCode.User;
 
 public class loginStepsClass {
 
@@ -22,7 +22,7 @@ public class loginStepsClass {
 	MainLoginClass loginClass5 = new MainLoginClass();
 	MainLoginClass loginClass6 = new MainLoginClass();
 	
-	static List<user> listOfUsers = new ArrayList<user>();
+	static List<User> listOfUsers = new ArrayList<User>();
 	List<List<String>> usersList;
 	
 	static Boolean case1 = false;
@@ -64,7 +64,7 @@ public class loginStepsClass {
 	public void theDataTableForExistingUsers(io.cucumber.datatable.DataTable dataTable) {
 		usersList = dataTable.asLists();	
 		for(int i=1;i<usersList.size();i++) {
-			 user temp = new user(usersList.get(i).get(0).toString(), usersList.get(i).get(1).toString(),usersList.get(i).get(2).toString()); 
+			 User temp = new User(usersList.get(i).get(0).toString(), usersList.get(i).get(1).toString(),usersList.get(i).get(2).toString()); 
 			 listOfUsers.add(temp);
 		}
 		
