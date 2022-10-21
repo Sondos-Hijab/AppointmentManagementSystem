@@ -1,39 +1,37 @@
-Feature: Login 
+Feature: Login
 
-	I want to login into the Beauty Center Application
+  I want to login on Beauty Center Website
 
-Scenario: 
-	Given I am in a login page 
-	And the data table for existing username 
-		| 0|name | 
-		| 1|raghad | 
-		| 2|sondos | 
-		| 3|sama |  
-		| 4|amal |  
-	And the user password table for these users in sequence 
-		| 0| password | 
-		| 1|123456 | 
-		| 2| 123456 | 
-		| 3| 123456 | 
-		| 4|123456 |  
-	When user enters username 
-	And user enters password 
-	And I check the username and password 
-	
-Scenario: Login successfully 
-	When I type correct username and password 
-	Then I should see Welcome to your account 
-	
-Scenario: Wrong username and password 
-	When I type wrong username and password 
-	Then I should see username and password are incorrect 
-	
-Scenario: Wrong username 
-	When I type wrong username 
-	Then I should see username is incorrect 
-	
-	
-Scenario: Wrong password 
-	When I type wrong password 
-	Then I should see password is incorrect 
-	
+
+  Scenario: Wrong password
+	Given the data table for existing users
+		|name | password | type |
+		|Sondos | sondos1234 | admin |
+		|Sama | sama1234 |user |
+		|Raghad |  raghad1234 |employee|
+    When I type right username, wrong password and select the right user type
+    Then I should see password is incorrect
+    
+  Scenario: Wrong password and username
+    When I type wrong username, wrong password
+    Then I should see password and username are incorrect
+    
+  Scenario: Wrong username
+    When I type wrong username, right password and right user type
+    Then I should see username is incorrect   
+ 
+    
+  Scenario: Login successfully for admin
+    When I type right username, right password and the usertype is an admin
+    Then I should be on the admins home page
+    And I should see Login successful for admin
+    
+  Scenario: Login successfully for user 
+    When I type right username, right password and the usertype is a user
+    Then I should be on the users home page
+    And I should see Login successful for user
+    
+  Scenario: Login successfully for employee 
+    When I type right username, right password and the usertype is a employee
+    Then I should be on the employees home page
+    And I should see Login successful for employee
