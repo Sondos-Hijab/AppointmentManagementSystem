@@ -95,7 +95,7 @@ public class appointmentSteps {
 
 	@Given("the data table for existing appointments")
 	public void theDataTableForExistingAppointments(io.cucumber.datatable.DataTable dataTable) {
-		System.out.println("Appointment test caseS");
+		System.out.println("Appointment test cases");
 		appointmentsList = dataTable.asLists();
 		for (int i = 1; i < appointmentsList.size(); i++) {
 			Reservations temp = new Reservations(appointmentsList.get(i).get(0).toString(),
@@ -122,7 +122,7 @@ public class appointmentSteps {
 	@Then("I should see the value of one field or more is empty")
 	public void iShouldSeeTheValueOfOneFieldOrMoreIsEmpty() {
 		if (case1) {
-			System.out.println("Case2: the value of one field or more is empty");
+			System.out.println("Case1: the value of one field or more is empty");
 			assertTrue(case1);
 		}
 
