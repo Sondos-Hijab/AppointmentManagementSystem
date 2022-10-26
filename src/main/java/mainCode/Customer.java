@@ -48,14 +48,12 @@ public class Customer extends User {
 	}
 
 
-	public List<Visit> getVisits() {
-		return visits;
-	}
-
-
-	public void setVisits(List<Visit> visits) {
-		this.visits = visits;
-	}
+	
+	 public List<Visit> getVisits() { return visits; }
+	 
+	  
+	 public void setVisits(List<Visit> visits) { this.visits = visits; }
+	 
 
 	public Appointment addAnAppointment (MainSystem mainsystem) {
 		Appointment appointment = new Appointment();
@@ -63,6 +61,25 @@ public class Customer extends User {
 		this.getAppointments().add(appointment);
 		System.out.println("Appointment Booked Successfully!");
 		return appointment;
+	}
+
+	public boolean generateAnInvoice() {
+		if(this.getAppointments().size() == 0) {
+			System.out.println("You don't have any appointments yet, "
+					+ "add an appointment first and then ask to generate the invoice");
+			return false;
+		}
+		else {
+			int totalPrice = 0;
+			for(int i=0;i<this.getAppointments().size();i++) {
+				System.out.println("Appointment Id: " + this.getAppointments().get(i).getId()
+						+ " Price: "+this.getAppointments().get(i).getService().getPrice());
+				totalPrice += this.getAppointments().get(i).getService().getPrice();
+			}
+			System.out.println("Total Price: "+ totalPrice);
+			return true;
+		}
+		
 	}
 
 
