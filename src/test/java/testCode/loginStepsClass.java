@@ -10,10 +10,14 @@ import org.junit.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import mainCode.Customer;
 import mainCode.MainLoginClass;
 import mainCode.user;
 
 public class loginStepsClass {
+	Customer tes=new Customer();
+	//String email="samagmail.com";
+	//String pass="sama12dk";
 
 	MainLoginClass loginClass1 = new MainLoginClass();
 	MainLoginClass loginClass2 = new MainLoginClass();
@@ -66,9 +70,15 @@ public class loginStepsClass {
 		for(int i=1;i<usersList.size();i++) {
 			 user temp = new user(usersList.get(i).get(0).toString(), usersList.get(i).get(1).toString(),usersList.get(i).get(2).toString()); 
 			 listOfUsers.add(temp);
+					}
+	/*	if( Customer.isValidEmail(email)){
+			System.out.println("trueEmail");
 		}
-		
-
+		else System.out.println("false");*/
+		/*if( Customer.isValidPassword(pass)){
+			System.out.println("true pssword");
+		}
+		else System.out.println("false");*/
 	}
 	
 	//wrong password
