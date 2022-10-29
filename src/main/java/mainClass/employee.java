@@ -1,37 +1,18 @@
 package mainClass;
 
-public class employee {
-	private int id;
-	private String employeeName;
-	private String password;
-	private employee(){
-		this.id = 0;
-		this.employeeName = "";
-		this.password = "";
-	}
-	public employee (String employeeName,  String password) {
-		this.id = 0;
-		this.employeeName = employeeName;
-		this.password = password;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getEmployeeName() {
-		return employeeName;
-	}
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+public class employee extends user {
 	
+	public employee (String userId, String username, String password, String email){
+		super(userId, username, password, email);
+		
+	}
+	public employee(String username, String password) {
+		super( username, password);
+
+	}
+	public employee (){
+		super();
+		
+	}
 
 }

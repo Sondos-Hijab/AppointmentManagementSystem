@@ -13,7 +13,7 @@ public class BookingClass {
 	}
 
 	public static boolean checkStartTime(int start_time) {
-		if ((start_time >= 10 && start_time <= 12) || (start_time >= 1 && start_time <= 5)) {
+		if ((start_time >= 10 && start_time <= 17)) {
 			return true;
 		}
 		return false;
@@ -21,7 +21,7 @@ public class BookingClass {
 
 	public static boolean checkEndTime(int start_time, int timeOfService) {
 		if (checkStartTime(start_time)) {
-			if ((start_time + timeOfService <= 6))
+			if ((start_time + timeOfService <= 18))
 				return true;
 		}
 		return false;

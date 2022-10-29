@@ -9,6 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(features ="use_cases",
 //plugin= {"html:target/cucumber/wikipedia.html"},
+//plugin= {"pretty"},
 monochrome=true,
 snippets=SnippetType.CAMELCASE,
 glue= {"AMS"})

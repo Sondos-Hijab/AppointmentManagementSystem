@@ -14,7 +14,7 @@ public class Reservations {
 	private String month;
 	private String year;
 	service s;
-	private Reservations(){
+	public Reservations(){
 		this.serviceName = "";
 		this.employeeId = "";
 		this.userId = "";

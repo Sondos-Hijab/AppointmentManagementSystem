@@ -1,29 +1,29 @@
 package mainClass;
 
 public class service {
-	private int id;
+	private String serviceId;
 	private String serviceName;
 	private String employeeId;
-	private String price;
-	private String time;
-	private service(){
+	private int price;
+	private int time;
+	public service(){
 		this.serviceName = "";
 		this.employeeId = "";
-		this.price = "";
-		this.time = "";
+		this.price = 0;
+		this.time = 0;
 	}
-	public service (String id ,String serviceName,  String employeeId, String price , String time) {
-		this.id = Integer.parseInt(id);
+	public service (String serviceId ,String serviceName,  String employeeId, int price , int time) {
+		this.serviceId = serviceId;
 		this.serviceName = serviceName;
 		this.employeeId = employeeId;
 		this.price = price;
 		this.time = time;
 	}
-	public int getId() {
-		return id;
+	public String getServiceId() {
+		return serviceId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
 	}
 	public String getServiceName() {
 		return serviceName;
@@ -37,16 +37,16 @@ public class service {
 	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getTime() {
+	public int getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(int time) {
 		this.time = time;
 	}
 

@@ -1,29 +1,33 @@
 package mainClass;
 
 public class user {
-	private int id;
+	private String userId;
 	private String username;
 	private String password;
-	private String phone;
 	private String email;
-	private user() {
-		this.id = 0;
+	public user() {
+		this.userId = "";
 		this.username = "";
 		this.password = "";
-		this.phone = "";
 		this.email = "";
 	}
-	public user (String username,  String password, String phone , String email) {
+	public user(String userId, String username, String password, String email) {
+		this.userId = userId;
 		this.username = username;
 		this.password = password;
-		this.phone = phone;
-		this.email = email;
+		this.email = email;	
 	}
-	public int getId() {
-		return id;
+	public user(String username, String password) {
+		this.userId = "";
+		this.username = username;
+		this.password = password;
+		this.email = "";	
 	}
-	public void setId(int id) {
-		this.id = id;
+	public String getId() {
+		return userId;
+	}
+	public void setId(String id) {
+		this.userId = userId;
 	}
 	public String getUsername() {
 		return username;
@@ -43,12 +47,7 @@ public class user {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getphone() {
-		return phone;
-	}
-	public void setphone(String phone) {
-		this.phone = phone;
-	}
+	
 	
 	
 }
