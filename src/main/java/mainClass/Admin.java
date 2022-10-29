@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Admin extends user{
 	List <service> Services = new ArrayList <service>();
+	List <Story> stories = new ArrayList <Story>();
 
 	public Admin (String userId, String username, String password, String email){
 		super(userId, username, password, email);
@@ -36,6 +37,13 @@ public class Admin extends user{
 	
 	public void addService(service serviceCase1) {
 		Services.add(serviceCase1);
+		
+	}
+	public List<Story> getStory() {
+		return stories;
+	}
+	public void addStory(Story myStory) {
+		stories.add(myStory);
 		
 	}
 	public boolean checkServiceNameInTheServiceList(String serviceName, List<service> listOfServices) {
