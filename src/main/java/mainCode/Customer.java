@@ -70,12 +70,12 @@ public class Customer extends user {
 	 public static boolean UsernameIsUsed(String username,MainSystem main){
 	    {
 		 for(int i=0;i<main.getCustomers().size();i++) {
-				if(main.getCustomers().get(i).getUsername() ==username) {
+				if(main.getCustomers().get(i).getUsername().equals(username)) {
 					
-					return false;
+					return true;
 				}
 			}
-			return true;
+			return false;
 		}
 	      
 	    }
@@ -83,12 +83,12 @@ public class Customer extends user {
 	 public static boolean EmailIsUsed(String email,MainSystem main){
 		    {
 			 for(int i=0;i<main.getCustomers().size();i++) {
-					if(main.getCustomers().get(i).getEmail() == email) {
+					if(main.getCustomers().get(i).getEmail().equals(email)) {
 						
-						return false;
+						return true;
 					}
 				}
-				return true;
+				return false;
 			}
 		      
 		    }

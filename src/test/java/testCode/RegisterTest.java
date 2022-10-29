@@ -2,18 +2,25 @@ package testCode;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.cucumber.java.en.*;
 import mainCode.Customer;
 import mainCode.MainSystem;
 
 public class RegisterTest {
 	
+
+static int emailF=0;
+static int passF=0;
+static int usernameF=0;
+static int validInputsF=0;
+Customer customer1 = new Customer ("1", "saba", "saba2007","saba2007@gmail.com",598667006);
 Customer customer=new Customer();
-int emailF=0;
-int passF=0;
-int usernameF=0;
-int validInputsF=0;
 MainSystem main = new MainSystem();
+List <Customer> customers = new ArrayList <Customer>();
+
 	@Given("the customer in Registration page")
 	public void theCustomerInRegistrationPage() {
 	
@@ -27,7 +34,7 @@ MainSystem main = new MainSystem();
 	public void customerEntersUsedUsername() {
 		String username1="saba";
 		
-		
+		main.addCustomer(customer1);
 	 if(  customer.UsernameIsUsed(username1, main)) {
 		 usernameF=1;
 	 }
@@ -45,7 +52,7 @@ MainSystem main = new MainSystem();
 	
 	@When("customer enters used  email")
 	public void customerEntersUsedEmail() {
-		
+		main.addCustomer(customer1);
 		String email="saba2007@gmail.com";
 		 if( customer.isValidEmail(email)&&customer.EmailIsUsed(email, main)) {
 			emailF=1;
@@ -63,6 +70,7 @@ MainSystem main = new MainSystem();
 
 	@When("customer enters wrong  email")
 	public void customerEntersWrongEmail() {
+		main.addCustomer(customer1);
 		String email="saba200gmail.com";
 		if( !customer.isValidEmail(email)) {
 			emailF=1;
@@ -80,6 +88,7 @@ MainSystem main = new MainSystem();
 
 	@When("customer enters wrong password")
 	public void customerEntersWrongPassword() {
+		main.addCustomer(customer1);
 		String Weakpass="saba1";
 		if( !customer.isValidPassword(Weakpass)) {
 			passF=1;
@@ -97,22 +106,26 @@ MainSystem main = new MainSystem();
 
 	@When("customer enters valid input")
 	public void customerEntersValidInput() {
+		main.addCustomer(customer1);
 		String validUsername="sama";
 		String validPass="sama2001";
 		String validEmail="sama2001@gmail.com";
 		long number=598667006;
 		String id="2";
 		if(customer.isValidPassword(validPass)&& customer.isValidEmail(validEmail)&&!customer.UsernameIsUsed(validUsername, main)
-				&& !customer.EmailIsUsed(validEmail, main)) {
+				&& !customer.EmailIsUsed(validEmail, main))
+		{
 			customer.setEmail(validEmail);
 			customer.setId(id);
 			customer.setPassword(validPass);
 			customer.setPhoneNumber(number);
 			customer.setUsername(validUsername);
+			customers.add(customer);
+			main.setCustomers(customers);
 			passF=0;
 			emailF=0;
 			usernameF=0;
-			//validInputsF=1;
+			
 		}
 	 
 	}

@@ -14,8 +14,8 @@ public class MainSystem {
 	List <Service> services = new ArrayList <Service>();
 	//List <Appointment> systemAppointments = new ArrayList <Appointment>();
 
-	int startHour = 10;
-	int endHour = 18;
+	//int startHour = 10;
+	//int endHour = 18;
 	
 	//constructors
 	public MainSystem() {
