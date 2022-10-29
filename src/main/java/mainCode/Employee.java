@@ -7,14 +7,14 @@ public class Employee extends User {
 	
 	//constructors
 
-	public Employee (int id, String username, String password, String email){
+	public Employee (String userId, String username, String password, String email){
 		super();
-		this.id = id;
+		this.userId = userId;
 		this.username = username;
 		this.password = password;
 		this.email = email;
 	}
-	public boolean convertAppointmentToVisit(String cuctomerUserName, int appointmentId, String feedback, MainSystem mainsystem) {
+	public boolean convertAppointmentToVisit(String cuctomerUserName, String appointmentId, String feedback, MainSystem mainsystem) {
 		int i = 0;
 		
 		
@@ -40,7 +40,7 @@ public class Employee extends User {
 		}
 		
 		for(Appointment appointment1 : customer.getAppointments()) {
-			if(appointmentId == appointment1.getId()) 
+			if(appointmentId.equals(appointment1.getId())) 
 			{
 				appointment = appointment1;
 				flagAppointmentId = true;

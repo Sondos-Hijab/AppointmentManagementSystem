@@ -2,11 +2,6 @@ Feature: booking
 
   I want to book an appointment in the beauty center
 
-
-  Scenario: empty field
-  	When The system asks to enter the service that I want 
-    And I leave the service number field empty 
-    Then I should see a required field is empty
     
   Scenario: wrong enetred service number
     When I type wrong service number

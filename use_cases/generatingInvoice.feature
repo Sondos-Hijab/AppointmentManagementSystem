@@ -13,7 +13,7 @@ Feature: Generating an invoice
     Then the customer should see the generated invoice for the appointment
     
     
-  Scenario: Customer just has one appointment
+  Scenario: Customer has multiple appointments  
     Given the customer has multiple appointments  
     When the customer asks to generate an invoice for them
     Then the customer should see the generated invoice for the multiple appointment 
