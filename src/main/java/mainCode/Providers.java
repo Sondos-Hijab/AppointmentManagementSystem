@@ -21,7 +21,7 @@ package mainCode;
 		public String getProvider() {
 			return provider;
 		}
-		public void setUsername(String name) {
+		public void setname(String name) {
 			this.provider = name;
 		}
 		
