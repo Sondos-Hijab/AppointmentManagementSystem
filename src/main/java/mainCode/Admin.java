@@ -26,4 +26,19 @@ public boolean addProvider(String ProviderId ,MainSystem main ) {
 	
 	return false;
 }
+
+
+public static boolean DeleteCustomer(String id, MainSystem main){
+    {
+	 for(int i=0;i<main.getCustomers().size();i++) {
+			if(main.getCustomers().get(i).getId().equals(id) ) {
+				
+				return true;
+			}
+		}
+		return false;
+	}
+      
+    }
+
 }

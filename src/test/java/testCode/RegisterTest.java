@@ -126,6 +126,7 @@ List <Customer> customers = new ArrayList <Customer>();
 			emailF=0;
 			usernameF=0;
 			
+			
 		}
 	 
 	}

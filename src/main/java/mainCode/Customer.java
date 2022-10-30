@@ -94,6 +94,7 @@ public class Customer extends user {
 		    }
 	 
 	
+	
 	/*public List<Appointment> getAppointments() {
 		return appointments;
 	}
