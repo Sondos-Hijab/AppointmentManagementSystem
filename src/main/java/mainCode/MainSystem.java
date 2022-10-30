@@ -12,6 +12,7 @@ public class MainSystem {
 	//List <Employee> employees = new ArrayList <Employee>();
 	//List <Admin> admins = new ArrayList <Admin>();
 	List <Service> services = new ArrayList <Service>();
+	List <Providers> providers = new ArrayList <Providers>();
 	//List <Appointment> systemAppointments = new ArrayList <Appointment>();
 
 	//int startHour = 10;
@@ -22,9 +23,10 @@ public class MainSystem {
 			
 		}
 
-	public MainSystem(List<Customer> customers) {
+	public MainSystem(List<Customer> customers,List<Providers> providers ) {
 		super();
 		this.customers = customers;
+		this.providers=providers;
 		//this.employees = employees;
 		//this.admins = admins;
 		//this.services = services;
@@ -39,6 +41,11 @@ public class MainSystem {
 	public void addCustomer (Customer c) {
 		this.customers.add(c);
 	}
+	public void addProvider (Providers P) {
+		this.providers.add(P);
+	}
+	
+	
 	
 	/*public void addEmployee (Employee e) {
 		this.employees.add(e);
@@ -63,6 +70,14 @@ public class MainSystem {
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
 	}
+	public List<Providers> getProvider() {
+		return providers;
+	}
+
+	public void setProviders(List<Providers> providers) {
+		this.providers = providers;
+	}
+
 
 /*	public List<Employee> getEmployees() {
 		return employees;

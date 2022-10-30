@@ -10,7 +10,7 @@ Scenario:
 		
     Scenario: username  is used before
 	When customer enters used  username
-	Then the customer should see the user name is already used
+	Then the customer should see the username is already used
 	
 	Scenario: email is used before
 	When customer enters used  email

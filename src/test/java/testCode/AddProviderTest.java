@@ -6,17 +6,21 @@ import io.cucumber.java.en.*;
 import mainCode.Providers;
 import static org.junit.Assert.*;
 import mainCode.Admin;
+import mainCode.MainSystem;
 public class AddProviderTest {
 	static int addF=0;
 	Providers provider=new Providers("1","sephora");
 	List <Providers> provider1 = new ArrayList <Providers>();
+	MainSystem main=new MainSystem();
 	Providers provider2=new Providers();
 	Admin admin= new Admin();
 	@When("Admin enters wrong id for provider")
+	
 	public void adminEntersWrongIdForProvider() {
-		provider1.add(provider);
-	    String id="1";
-	 if(!admin.addProvider(id, provider1)) {
+		 String id="1";
+		main.addProvider(provider);
+	   
+	 if(admin.addProvider(id,main)) {
 		 addF=1;
 	 }
 	}
@@ -31,10 +35,12 @@ public class AddProviderTest {
 	@When("Admin enters correct id for provider")
 	public void adminEntersCorrectIdForProvider() {
 		String id="2";
-		provider1.add(provider);
-		 if(!admin.addProvider(id, provider1)) {
+		main.addProvider(provider);
+		 if(!admin.addProvider(id, main)) {
 			 provider2.setId(id);
 			 provider2.setname("NYX");
+			 provider1.add(provider2);
+			 main.setProviders(provider1);
 			 addF=0;
 		 }
 		

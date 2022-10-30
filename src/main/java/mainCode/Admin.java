@@ -15,11 +15,11 @@ public class Admin {
 	
 	}
 
-public boolean addProvider(String ProviderId ,List <Providers> provider ) {
+public boolean addProvider(String ProviderId ,MainSystem main ) {
 	
-	for(int i=0; i<provider.size(); i++) 
+	for(int i=0;i<main.getProvider().size();i++) 
 	{
-		if(ProviderId.equals(provider.get(i).getProviderId())) {
+		if(main.getProvider().get(i).getProviderId().equals(ProviderId)) {
 			return true;
 		}
 	}

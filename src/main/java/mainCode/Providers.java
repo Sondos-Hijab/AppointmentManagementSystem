@@ -10,7 +10,8 @@ package mainCode;
 			
 		}
 		public Providers (String id,  String provider) {
-			
+			this.id=id;
+			this.provider=provider;
 		}
 		public String getProviderId() {
 			return id;

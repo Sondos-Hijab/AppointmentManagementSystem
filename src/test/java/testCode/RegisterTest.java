@@ -23,7 +23,7 @@ List <Customer> customers = new ArrayList <Customer>();
 
 	@Given("the customer in Registration page")
 	public void theCustomerInRegistrationPage() {
-	
+		
 	}
 	@Given("the data table for customers is")
 	public void theDataTableForCustomersIs(io.cucumber.datatable.DataTable dataTable) {
@@ -40,13 +40,13 @@ List <Customer> customers = new ArrayList <Customer>();
 	 }
 	
 	}
-	@Then("the customer should see the user name is already used")
+	@Then("the customer should see the username is already used")
 	public void theCustomerShouldSeeTheUserNameIsAlreadyUsed() {
-	if(usernameF==1) {
-		assertTrue(usernameF==1);
-		System.out.println("username is already used");
-	}
-	
+		
+		if(usernameF==1) {
+			assertTrue(usernameF==1);
+			System.out.println("username is already used");
+		}
 	}
 
 	
