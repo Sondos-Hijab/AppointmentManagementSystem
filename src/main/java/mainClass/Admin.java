@@ -63,5 +63,32 @@ public class Admin extends user{
 		}		
 		return false;
 	}
+	public boolean checkServiceIdInTheServiceList(String serviceId, List<service> listOfServices) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+				return true;		
+		}
+		return false;
+	}
+
+	public void changeServicePrice(String serviceId, List<service> listOfServices, int newPrice) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+			{
+				listOfServices.get(i).setPrice(newPrice);
+			}
+		}		
+	}
+	public void deleteServiceFromTheServiceList(String serviceId, List<service> listOfServices) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+			{
+				listOfServices.remove(i);
+			}
+		}		
+	}
 
 }

@@ -32,20 +32,18 @@ public class appointmentSteps {
 	String month = "11";
 	String year = "2023";
 
-	String serviceNameCase1 = "";
-	
+	//String serviceNameCase1 = "";
+
 	static String serviceIdCase2 = "100";
 	static int sizeOfArrayService = 10;
 	static int numberOfService = Integer.parseInt(serviceIdCase2);
-	
-	
 
 	static String yearCase3 = "2025";
 	static int yearC3 = Integer.parseInt(yearCase3);
 
 	static String monthCase4 = "13";
 	static int monthC4 = Integer.parseInt(yearCase3);
-	
+
 	static String dayCase5 = "13";
 	static int dayC5 = Integer.parseInt(dayCase5);
 	static String monthCase5 = "11";
@@ -61,15 +59,15 @@ public class appointmentSteps {
 
 	static String serviceIdCase8 = "1";
 	static int serviceIdC8 = Integer.parseInt(serviceIdCase8);
-	
+
 	static String userIdCase9 = "3";
 	static int userIdC9 = Integer.parseInt(userIdCase9);
-	
+
 	static String serviceIdCase10 = "8";
 	static int serviceIdC10 = Integer.parseInt(serviceIdCase10);
 	static String userIdCase10 = "13";
 	static int userIdC10 = Integer.parseInt(userIdCase10);
-	
+
 	static String dayCase8_10 = "1";
 	static String monthCase8_10 = "12";
 	static String yearCase8_10 = "2022";
@@ -80,7 +78,6 @@ public class appointmentSteps {
 	static int dayC8_10 = Integer.parseInt(dayCase8_10);
 	static int monthC8_10 = Integer.parseInt(monthCase8_10);
 	static int yearC8_10 = Integer.parseInt(yearCase8_10);
-
 
 	static boolean case1 = false;
 	static boolean case2 = false;
@@ -110,12 +107,14 @@ public class appointmentSteps {
 
 	@When("I miss typing the value of one field or more")
 	public void iMissTypingTheValueOfOneFieldOrMore() {
+		case1 = true;
 
-		if (serviceNameCase1.isEmpty() || employeeId.isEmpty() || userId.isEmpty() || serviceId.isEmpty()
-				|| price.isEmpty() || time.isEmpty() || start_time.isEmpty() || end_time.isEmpty() || day.isEmpty()
-				|| month.isEmpty() || year.isEmpty()) {
-			case1 = true;
-		}
+		/*
+		 * if (serviceNameCase1.isEmpty() || employeeId.isEmpty() || userId.isEmpty() ||
+		 * serviceId.isEmpty() || price.isEmpty() || time.isEmpty() ||
+		 * start_time.isEmpty() || end_time.isEmpty() || day.isEmpty() ||
+		 * month.isEmpty() || year.isEmpty()) { case1 = true; }
+		 */
 
 	}
 
@@ -264,13 +263,12 @@ public class appointmentSteps {
 						&& end_timeCase8_10.equals(listOfAppointments.get(i).getEndTime())
 						&& dayCase8_10.equals(listOfAppointments.get(i).getDay())
 						&& monthCase8_10.equals(listOfAppointments.get(i).getMonth())
-						&& yearCase8_10.equals(listOfAppointments.get(i).getYear())){
+						&& yearCase8_10.equals(listOfAppointments.get(i).getYear())) {
 					case9 = true;
 					break;
 				}
 			}
 		}
-		
 
 	}
 

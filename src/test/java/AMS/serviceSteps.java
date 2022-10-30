@@ -5,12 +5,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainClass.BookingClass;
 import mainClass.Admin;
 import mainClass.service;
 import mainClass.employee;
@@ -43,7 +41,7 @@ public class serviceSteps {
 	@Given("the data table for existing services")
 	public void theDataTableForExistingServices(io.cucumber.datatable.DataTable dataTable) {
 
-		System.out.println("Service test cases");
+		System.out.println("Adding Service test cases");
 		servicesList = dataTable.asLists();
 		for (int i = 1; i < servicesList.size(); i++) {
 			service temp = new service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
