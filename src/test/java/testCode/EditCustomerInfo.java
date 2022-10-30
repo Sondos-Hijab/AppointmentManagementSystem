@@ -1,0 +1,97 @@
+package testCode;
+
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.cucumber.java.en.*;
+import mainCode.*;
+
+public class EditCustomerInfo {
+static int passF=0;
+
+Customer customer= new Customer();
+Customer customer1 = new Customer ("1", "saba", "saba2007","saba2007@gmail.com",598667006);
+MainSystem main= new MainSystem();
+
+List <Customer> customers = new ArrayList <Customer>();
+
+	@Given("the customer is logged in")
+	public void theCustomerIsLoggedIn() {
+	    
+	}
+	@When("the customer enters wrong password")
+	public void theCustomerEntersWrongPassword() {
+		main.addCustomer(customer1);
+	   String Pass="saba";
+	   if(!Customer.ValidPassword(Pass, main)) {
+		   passF=1;
+	   }
+	}
+	@Then("the customer should see incorrect password")
+	public void theCustomerShouldSeeIncorrectPassword() {
+	  if(passF==1) {
+		  assertTrue(passF==1);
+		  System.out.println("wrong password");
+	  }
+	}
+
+
+	@When("user enters right password and wants to edit the email")
+	public void userEntersRightPasswordAndWantsToEditTheEmail() {
+		main.addCustomer(customer1);
+		 String Pass="saba2007";
+	    String newEmail="sabafadda@gmail.com";
+	    if(Customer.ValidPassword(Pass, main)) {
+	    	customer.setEmail(newEmail);
+	    	customers.add(customer);
+	    	main.setCustomers(customers);
+	    	
+			   passF=0;
+		   }
+	}
+	@Then("the customer should see the email has been edited")
+	public void theCustomerShouldSeeTheEmailHasBeenEdited() {
+		  if(passF==0) {
+			  assertTrue(passF==0);
+			  System.out.println("the email has been edited");
+		  }
+	}
+
+
+	@When("user enters right password and wants to edit the password")
+	public void userEntersRightPasswordAndWantsToEditThePassword() {
+	 
+	}
+	@Then("the customer should see the password has been edited")
+	public void theCustomerShouldSeeThePasswordHasBeenEdited() {
+
+	}
+
+	
+
+	@When("user enters right password and wants to edit the phone number")
+	public void userEntersRightPasswordAndWantsToEditThePhoneNumber() {
+	
+	}
+	@Then("the customer should see the phone number has been edited")
+	public void theCustomerShouldSeeThePhoneNumberHasBeenEdited() {
+	 
+	}
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+}

@@ -93,6 +93,30 @@ public class Customer extends user {
 		      
 		    }
 	 
+	 /*public static boolean EditPassword(String NewPassword, MainSystem main){
+		    {
+			 for(int i=0;i<main.getCustomers().size();i++) {
+					if( ) {
+						
+						return true;
+					}
+				}
+				return false;
+			}*/
+
+
+	public static boolean ValidPassword(String pass, MainSystem main) {
+		for(int i=0;i<main.getCustomers().size();i++) {
+			if(main.getCustomers().get(i).getPassword().equals(pass) ) {
+				
+				return true;
+			}
+		}
+		return false;
+	}
+      
+	
+	 
 	
 	
 	/*public List<Appointment> getAppointments() {
