@@ -242,6 +242,23 @@ public class Customer extends User {
 
 
 
+	public boolean deleteAppointment(String enteredAppointmentId) {
+		for(int i=0;i<this.getAppointments().size();i++) {
+			if(this.getAppointments().get(i).getId().equals(enteredAppointmentId)) {
+				this.getAppointments().remove(this.getAppointments().get(i));
+				System.out.println("Deleted Successfully!\n");
+				return true;
+			}
+		}
+		System.out.println("Can't delete, it's either wrong appointment id or you don't have appointments at all!");
+		
+		return false;
+		
+		
+	}
+
+
+
 
 }
 
