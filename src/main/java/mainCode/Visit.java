@@ -3,8 +3,8 @@
   
   public class Visit { 
 	  
-	  private Appointment appointment; 
-	  private String feedback;
+	private Appointment appointment; 
+	private String feedback;
   
   public Visit(Appointment appointment, String feedback) 
 	  { 
@@ -19,10 +19,23 @@
   } 
   
 
-public void printVisit() {
-	System.out.println("Visit feedback --> "+ this.feedback);
+	public void printVisit() {
+		System.out.println("Visit feedback --> "+ this.feedback);
+		
+	}
 	
-}
+	
+	public Appointment getAppointment() {
+		return appointment;
+	}
+	
+	
+	
+	
+	public String getFeedback() {
+		return feedback;
+	}
+
   
   }
 

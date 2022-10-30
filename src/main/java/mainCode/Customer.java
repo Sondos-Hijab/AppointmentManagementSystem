@@ -36,7 +36,16 @@ public class Customer extends User {
 
 
 
-	 public List<Visit> getVisits() { return visits; }
+	 public long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+
+
+
+
+	public List<Visit> getVisits() { return visits; }
 	 
 	  
 	 

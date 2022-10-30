@@ -8,6 +8,8 @@ public class Service {
 	private int time;
 	
 	
+
+
 	//constructors
 	public Service() {
 		
@@ -36,6 +38,10 @@ public class Service {
 		return time;
 	}
 
-	
+	public String getTitle() {
+		return title;
+	}
+
+
 	
 }

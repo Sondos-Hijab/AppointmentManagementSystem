@@ -12,6 +12,8 @@ public class Appointment {
 	private int startingHour;
 	private int year;
 	private int month;
+	
+
 	private int day;
 	
 	
@@ -36,10 +38,19 @@ public class Appointment {
 	public String getId() {
 		return appointmentId;
 	}
+	
+	public void setId(String id) {
+		this.appointmentId = id;
+	}
 
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
+	
+	public String getCustomerId() {
+		return customerId;
+	}
+	
 	public Service getService() {
 		return service;
 	}

@@ -22,7 +22,7 @@ public class ConvertingAppointmentToVisitSteps {
 	Employee employee = new Employee ("1", "Falak", "Falak1234", "Falak@gmail.com");
 	Customer customer = new Customer ("1", "aseel", "aseel1234","aseel@gmail.com",8563);
 	Service service = new Service("1", "makeup", 200, 1,2);
-	Appointment appointment = new Appointment ("1","1",service,12, 2022, 10, 29); //today, we'll convert it to today every time
+	Appointment appointment = new Appointment (); //today, we'll convert it to today every time
 	
 	
 	Visit visit = new Visit();
@@ -40,7 +40,11 @@ public class ConvertingAppointmentToVisitSteps {
 	
 	@Given("the customer has an appointment and the employee wants to convert it to a visit")
 	public void theCustomerHasAnAppointmentAndTheEmployeeWantsToConvertItToAVisit() {
-		appointment.setYear(currentYear);
+		appointment.setId("1");
+		appointment.setCustomerId("1");
+		appointment.setService(service);
+		appointment.setStartingHour(12);
+		
 		appointment.setMonth(currentMonth);
 		appointment.setDay(currentDay);
 		customer.getAppointments().add(appointment);
@@ -49,7 +53,7 @@ public class ConvertingAppointmentToVisitSteps {
 	}
 	@When("The employee types the username of the customer and the appointment id and the feedback and the username isn't in our record")
 	public void theEmployeeTypesTheUsernameOfTheCustomerAndTheAppointmentIdAndTheFeedbackAndTheUsernameIsnTInOurRecord() {
-		
+		appointment.setYear(currentYear);
 		cuctomerUserName = "sama";
 		appointmentId = "1";
 		feedback = "The services you provide are good!";
@@ -69,7 +73,7 @@ public class ConvertingAppointmentToVisitSteps {
 	
 	@When("The employee types wrong appointment id")
 	public void theEmployeeTypesWrongAppointmentId() {
-		
+		appointment.setYear(currentYear);
 		cuctomerUserName = "aseel";
 		appointmentId = "2";
 		feedback = "The services you provide are good!";
@@ -107,7 +111,7 @@ public class ConvertingAppointmentToVisitSteps {
 
 	@When("Employee types right customeer username, right appointment id")
 	public void employeeTypesRightCustomeerUsernameRightAppointmentId() {
-		
+		appointment.setYear(currentYear);
 		cuctomerUserName = "aseel";
 		appointmentId = "1";
 		feedback = "The services you provide are good!";

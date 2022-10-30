@@ -12,6 +12,11 @@ public class MainSystem {
 	List <Admin> admins = new ArrayList <Admin>();
 	List <Service> services = new ArrayList <Service>();
 	List <Appointment> systemAppointments = new ArrayList <Appointment>();
+	List <Visit> visits = new ArrayList <Visit>();
+	
+
+
+
 
 	int startHour = 10;
 	int endHour = 18;
@@ -29,8 +34,21 @@ public class MainSystem {
 
 	//getters and setters
 	
+	public List<Visit> getVisits() {
+		return visits;
+	}
+
+	
 	public void addCustomer (Customer c) {
 		this.customers.add(c);
+	}
+	
+	public void addVisit (Visit c) {
+		this.visits.add(c);
+	}
+	
+	public void addService (Service c) {
+		this.services.add(c);
 	}
 	
 	public void addEmployee (Employee e) {
