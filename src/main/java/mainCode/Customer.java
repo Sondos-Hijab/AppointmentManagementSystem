@@ -4,28 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import mainCode.Appointment;
+import mainCode.Customer;
+import mainCode.MainSystem;
+import mainCode.Service;
+import mainCode.Visit;
+
 public class Customer extends User {
 	private long phoneNumber;
 	List <Appointment> appointments = new ArrayList <Appointment>();
 	List <Visit> visits = new ArrayList <Visit>();
-	
-	
-	//constructors
-	public Customer() {
-		super();
-	}
-	
 
+	public Customer(String username, String password) {
+		super( username, password);
+
+	}
+	public Customer (){
+		super();
+		
+	}
 	
 	public Customer(String userId, String username, String password, String email,long phoneNumber) {
-		super();
-		this.userId = userId;
-		this.username = username;
-		this.password = password;
-		this.email=email;
+		super(userId, username, password, email);
 		this.phoneNumber = phoneNumber;
 	}
-	//getters and setters
 	
 
 	
@@ -75,7 +80,7 @@ public class Customer extends User {
 
 	public boolean checkIfTheEnteredServiceNumberIsWrong(MainSystem mainSys, String chosenServiceString) {
 		for(int i=0;i<mainSys.getServices().size();i++) {
-			if(mainSys.getServices().get(i).getId().equals(chosenServiceString)) {
+			if(mainSys.getServices().get(i).getServiceId().equals(chosenServiceString)) {
 				return false;
 			}
 		}
@@ -178,7 +183,7 @@ public class Customer extends User {
 		}
 		
 		for(int i=0;i<mainsystem.getServices().size();i++) {
-			if(mainsystem.getServices().get(i).getId().equals(chosenServiceString)) {
+			if(mainsystem.getServices().get(i).getServiceId().equals(chosenServiceString)) {
 				chosenService = mainsystem.getServices().get(i);
 			}
 		}
@@ -281,7 +286,7 @@ public class Customer extends User {
 				Service service = new Service();
 				//chosen service
 				for(int j=0;j<mainsystem.getServices().size();j++) {
-					if(mainsystem.getServices().get(j).getId().equals(appointment.getService().getId())) {
+					if(mainsystem.getServices().get(j).getServiceId().equals(appointment.getService().getServiceId())) {
 						service = mainsystem.getServices().get(j);
 					}
 				}

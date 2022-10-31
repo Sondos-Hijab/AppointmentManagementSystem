@@ -15,9 +15,9 @@ public class GeneratingInvoiceSteps {
 
 
 	Customer customer = new Customer ("1", "aseel", "aseel1234","aseel@gmail.com",8563);
-	Service service1 = new Service("1", "makeup", 200, 1,2);
-	Service service2 = new Service("2", "haircut", 30, 2,1);
-	Service service3 = new Service("3", "hair coloring", 250, 3,3);
+	Service service1 = new Service("1", "makeup","1", 200,2);
+	Service service2 = new Service("2", "haircut", "2",30,1);
+	Service service3 = new Service("3", "hair coloring","3", 250, 3);
 	
 	Appointment appointment1 = new Appointment ("1","1",service1,12, 2022, 11, 5);
 	Appointment appointment2 = new Appointment ("2","1",service2,10, 2022, 10, 30);

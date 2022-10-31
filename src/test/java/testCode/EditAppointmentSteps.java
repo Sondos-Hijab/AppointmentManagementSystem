@@ -22,7 +22,7 @@ public class EditAppointmentSteps {
 	int year, month, day, startHour;
 	
 	MainSystem mainsystem = new MainSystem();
-	Service service1 = new Service("1", "makeup", 200, 1,2);
+	Service service1 = new Service("1", "makeup","1", 200,2);
 	
 	Employee employee1 = new Employee ("1", "Falak", "Falak1234", "Falak@gmail.com");
 

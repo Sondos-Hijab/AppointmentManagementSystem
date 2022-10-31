@@ -14,7 +14,6 @@ import mainCode.Admin;
 import mainCode.Appointment;
 import mainCode.Customer;
 import mainCode.Employee;
-import mainCode.MainLoginClass;
 import mainCode.MainSystem;
 import mainCode.Service;
 
@@ -26,11 +25,11 @@ public class BookingStepsClass {
 
 	 MainSystem mainsystem = new MainSystem();
 	
-	Service service1 = new Service("1", "makeup", 200, 1,2);
-	Service service2 = new Service("2", "haircut", 30, 2,1);
-	Service service3 = new Service("3", "hair coloring", 250, 3,3);
-	Service service4 = new Service("4", "bride pacakge", 1000, 4,8);
-	Service service5 = new Service("5", "nails", 120, 5,2);
+	Service service1 = new Service("1", "makeup","1", 200,2);
+	Service service2 = new Service("2", "haircut","2",30,1);
+	Service service3 = new Service("3", "hair coloring","3", 250,3);
+	Service service4 = new Service("4", "bride pacakge","4", 1000,8);
+	Service service5 = new Service("5", "nails","5", 120,2);
 	
 	
 	Employee employee1 = new Employee ("1", "Falak", "Falak1234", "Falak@gmail.com");
@@ -181,7 +180,7 @@ public class BookingStepsClass {
 		chosenHour = 14;
 		
 		for(int i=0;i<mainsystem.getServices().size();i++) {
-			if(Integer.parseInt(mainsystem.getServices().get(i).getId()) == chosenServiceNumber) {
+			if(Integer.parseInt(mainsystem.getServices().get(i).getServiceId()) == chosenServiceNumber) {
 				chosenService = mainsystem.getServices().get(i);
 			}
 		}
@@ -210,7 +209,7 @@ public class BookingStepsClass {
 		chosenHour = 14;
 		
 		for(int i=0;i<mainsystem.getServices().size();i++) {
-			if(Integer.parseInt(mainsystem.getServices().get(i).getId()) == chosenServiceNumber) {
+			if(Integer.parseInt(mainsystem.getServices().get(i).getServiceId()) == chosenServiceNumber) {
 				chosenService = mainsystem.getServices().get(i);
 			}
 		}

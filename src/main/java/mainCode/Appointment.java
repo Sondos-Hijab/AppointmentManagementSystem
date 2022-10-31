@@ -5,6 +5,11 @@ import java.time.Year;
 import java.util.Scanner;
 import java.lang.Object.*;
 
+import java.time.Month;
+import java.time.Year;
+import java.util.Scanner;
+import java.lang.Object.*;
+
 public class Appointment {
 	private String appointmentId;
 	private String customerId;

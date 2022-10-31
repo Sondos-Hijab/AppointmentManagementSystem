@@ -1,7 +1,99 @@
 package mainCode;
 
-public class Admin extends User{
+import java.util.ArrayList;
+import java.util.List;
 
+import mainCode.Appointment;
+import mainCode.Customer;
+import mainCode.Employee;
+import mainCode.MainSystem;
+import mainCode.Service;
+import mainCode.Visit;
+
+public class Admin extends User{
+	List <Service> Services = new ArrayList <Service>();
+	List <Story> stories = new ArrayList <Story>();
+
+	public Admin (String userId, String username, String password, String email){
+		super(userId, username, password, email);
+		
+	}
+	public Admin(String username, String password) {
+		super( username, password);
+
+	}
+
+
+	public boolean checkEmployeeIdInTheServiceList(String employeeId, List<Service> listOfServices) {
+		
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(employeeId.equals(listOfServices.get(i).getEmployeeId()))
+				return true;
+				
+		}
+		return false;
+		
+	}
+	public List<Service> getServices() {
+		return Services;
+	}
+	
+	public void addService(Service serviceCase1) {
+		Services.add(serviceCase1);
+		
+	}
+	public List<Story> getStory() {
+		return stories;
+	}
+	public void addStory(Story myStory) {
+		stories.add(myStory);
+		
+	}
+	public boolean checkServiceNameInTheServiceList(String serviceName, List<Service> listOfServices) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceName.equals(listOfServices.get(i).getServiceName()))
+				return true;
+				
+		}
+		return false;
+	}
+	public boolean checkEmployeeIdInTheEmployeeList(String employeeId, List<Employee> listOfEmployees) {
+		for(int i=0; i<listOfEmployees.size(); i++) 
+		{
+			if(employeeId.equals(listOfEmployees.get(i).getId()))
+				return true;		
+		}		
+		return false;
+	}
+	public boolean checkServiceIdInTheServiceList(String serviceId, List<Service> listOfServices) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+				return true;		
+		}
+		return false;
+	}
+
+	public void changeServicePrice(String serviceId, List<Service> listOfServices, int newPrice) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+			{
+				listOfServices.get(i).setPrice(newPrice);
+			}
+		}		
+	}
+	public void deleteServiceFromTheServiceList(String serviceId, List<Service> listOfServices) {
+		for(int i=0; i<listOfServices.size(); i++) 
+		{
+			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+			{
+				listOfServices.remove(i);
+			}
+		}		
+	}
 	public static boolean generateCustomersReport(MainSystem mainsystem) {
 		System.out.println("Customers' Report:");
 		for(int i=0;i<mainsystem.getCustomers().size();i++) {
@@ -10,7 +102,7 @@ public class Admin extends User{
 		}
 		System.out.println();
 		return true;
-	} 
+	}
 
 	public static boolean generateEmployeesReport(MainSystem mainsystem) {
 		System.out.println("Employees' Report:");
@@ -27,7 +119,7 @@ public class Admin extends User{
 		for(int i=0;i<mainsystem.getSystemAppointments().size();i++) {
 			Appointment appointment=  mainsystem.getSystemAppointments().get(i);
 			System.out.println("Appointment's id: "+ appointment.getId()+"customer's id: "+appointment.getCustomerId() + " year: "+appointment.getYear()
-			+ " month: "+appointment.getMonth() + " day: "+appointment.getDay() + " starting hour: "+appointment.getStartingHour() + " service: "+appointment.getService().getTitle());
+			+ " month: "+appointment.getMonth() + " day: "+appointment.getDay() + " starting hour: "+appointment.getStartingHour() + " Service: "+appointment.getService().getServiceName());
 		}
 		System.out.println();
 		return true;
@@ -47,7 +139,7 @@ public class Admin extends User{
 		System.out.println("Services' Report:");
 		for(int i=0;i<mainsystem.getServices().size();i++) {
 			Service service=  mainsystem.getServices().get(i);
-			System.out.println("Service's id: "+ service.getId()+" Service's title: "+service.getTitle()
+			System.out.println("Service's id: "+ service.getServiceId()+" Service's title: "+service.getServiceName()
 			+" Service's time: "+service.getTime() +" Service's price: "+service.getPrice());
 		}
 		System.out.println();
@@ -65,7 +157,6 @@ public class Admin extends User{
 		System.out.println("\n\n\n");
 		return true;
 	}
-
 
 
 }
