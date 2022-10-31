@@ -24,6 +24,8 @@ public class Admin extends User{
 	}
 
 
+	public Admin() {
+	}
 	public boolean checkEmployeeIdInTheServiceList(String employeeId, List<Service> listOfServices) {
 		
 		for(int i=0; i<listOfServices.size(); i++) 
@@ -157,6 +159,32 @@ public class Admin extends User{
 		System.out.println("\n\n\n");
 		return true;
 	}
+	
+	public boolean addProvider(String ProviderId ,MainSystem main ) {
+		
+		for(int i=0;i<main.getProvider().size();i++) 
+		{
+			if(main.getProvider().get(i).getProviderId().equals(ProviderId)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+
+	public static boolean DeleteCustomer(String id, MainSystem main){
+	    {
+		 for(int i=0;i<main.getCustomers().size();i++) {
+				if(main.getCustomers().get(i).getId().equals(id) ) {
+					
+					return true;
+				}
+			}
+			return false;
+		}
+	      
+	    }
 
 
 }

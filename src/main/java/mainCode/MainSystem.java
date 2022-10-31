@@ -17,7 +17,7 @@ public class MainSystem {
 	List <Service> services = new ArrayList <Service>();
 	List <Appointment> systemAppointments = new ArrayList <Appointment>();
 	List <Visit> visits = new ArrayList <Visit>();
-	
+	List <Providers> providers = new ArrayList <Providers>();
 
 
 
@@ -47,6 +47,10 @@ public class MainSystem {
 		this.customers.add(c);
 	}
 	
+	public void addProvider (Providers P) {
+		this.providers.add(P);
+	}
+	
 	public void addVisit (Visit c) {
 		this.visits.add(c);
 	}
@@ -69,6 +73,11 @@ public class MainSystem {
 	}
 
 
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
+
+
 	public List<Employee> getEmployees() {
 		return employees;
 	}
@@ -80,6 +89,15 @@ public class MainSystem {
 
 
 
+	public List<Providers> getProvider() {
+		return providers;
+	}
+
+	public void setProviders(List<Providers> providers) {
+		this.providers = providers;
+	}
+
+	
 	public List<Appointment> getSystemAppointments() {
 		return systemAppointments;
 	}

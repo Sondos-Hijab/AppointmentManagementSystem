@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import java.util.regex.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +15,10 @@ import mainCode.Visit;
 
 public class Customer extends User {
 	private long phoneNumber;
+
+
+
+
 	List <Appointment> appointments = new ArrayList <Appointment>();
 	List <Visit> visits = new ArrayList <Visit>();
 
@@ -40,6 +44,9 @@ public class Customer extends User {
 
 
 
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
 	 public long getPhoneNumber() {
 		return phoneNumber;
@@ -335,6 +342,72 @@ public class Customer extends User {
 		
 	}
 
+	 public static boolean isValidEmail(String email)
+	    {
+	        String emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+	                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+	                              
+	        Pattern pat = Pattern.compile(emailRegex);
+	       
+	        return pat.matcher(email).matches();
+	    }
+	 
+	 public static boolean isValidPassword(String password)
+	    {
+	      int digitsCount=0;
+	      String Inputpassword= password;;
+	      int Passlength=Inputpassword.length();
+	      for(int i=0 ; i< Passlength ; i++) {
+	    	  char c= Inputpassword.charAt(i);
+	    	  if (Character.isDigit(c))
+	    		  digitsCount++;
+	      }
+	      if (digitsCount>0 && Passlength >=8) 
+	    	  return true;
+	      else
+		   return false;
+	      
+	    }
+	 
+	 public static boolean UsernameIsUsed(String username,MainSystem main){
+	    {
+		 for(int i=0;i<main.getCustomers().size();i++) {
+				if(main.getCustomers().get(i).getUsername().equals(username)) {
+					
+					return true;
+				}
+			}
+			return false;
+		}
+	      
+	    }
+	 
+	 public static boolean EmailIsUsed(String email,MainSystem main){
+		    {
+			 for(int i=0;i<main.getCustomers().size();i++) {
+					if(main.getCustomers().get(i).getEmail().equals(email)) {
+						
+						return true;
+					}
+				}
+				return false;
+			}
+		      
+		    }
+	 
+
+
+	public static boolean ValidPassword(String pass, MainSystem main) {
+		for(int i=0;i<main.getCustomers().size();i++) {
+			if(main.getCustomers().get(i).getPassword().equals(pass) ) {
+				
+				return true;
+			}
+		}
+		return false;
+	}
+   
 
 
 

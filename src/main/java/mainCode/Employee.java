@@ -57,7 +57,7 @@ import mainCode.Visit;
 			}
 
 
-			if(!(appointment.getYear() == currentYear) && (appointment.getMonth() == currentMonth) && (appointment.getDay() == currentDay)) {
+			if(!((appointment.getYear() == currentYear) && (appointment.getMonth() == currentMonth) && (appointment.getDay() == currentDay))) {
 				System.out.println("The appointment date isn't today!");
 				return false;
 			}
