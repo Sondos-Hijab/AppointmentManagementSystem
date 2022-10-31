@@ -57,15 +57,16 @@ import mainCode.Visit;
 			}
 
 
-			if(!((appointment.getYear() == currentYear) && (appointment.getMonth() == currentMonth) && (appointment.getDay() == currentDay))) {
-				System.out.println("The appointment date isn't today!");
-				return false;
-			}
+			
 			if (!flagCustomerUsername || !flagAppointmentId) 
 				{
 				System.out.println("The customer username or the appointment id or both are wrong!");
 				return false;
 				}
+			if(!(appointment.getYear() == currentYear) || !(appointment.getMonth() == currentMonth) || !(appointment.getDay() == currentDay)) {
+				System.out.println("The appointment date isn't today!");
+				return false;
+			}
 			else {
 				Visit visit = new Visit(appointment, feedback);
 				customer.getVisits().add(visit);

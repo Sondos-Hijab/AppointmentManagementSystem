@@ -22,7 +22,7 @@ public class ConvertingAppointmentToVisitSteps {
 	Employee employee = new Employee ("1", "Falak", "Falak1234", "Falak@gmail.com");
 	Customer customer = new Customer ("1", "aseel", "aseel1234","aseel@gmail.com",8563);
 	Service service = new Service("1", "makeup","1", 200, 2);
-	Appointment appointment = new Appointment (); //today, we'll convert it to today every time
+    static Appointment appointment = new Appointment (); //today, we'll convert it to today every time
 	
 	
 	Visit visit = new Visit();
