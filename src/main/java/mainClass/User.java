@@ -1,23 +1,23 @@
 package mainClass;
 
-public class user {
+public class User {
 	private String userId;
 	private String username;
 	private String password;
 	private String email;
-	public user() {
+	public User() {
 		this.userId = "";
 		this.username = "";
 		this.password = "";
 		this.email = "";
 	}
-	public user(String userId, String username, String password, String email) {
+	public User(String userId, String username, String password, String email) {
 		this.userId = userId;
 		this.username = username;
 		this.password = password;
 		this.email = email;	
 	}
-	public user(String username, String password) {
+	public User(String username, String password) {
 		this.userId = "";
 		this.username = username;
 		this.password = password;

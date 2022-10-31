@@ -23,4 +23,4 @@ Scenario: Duplicate in the name of the service (the service you are trying to ad
 	 	
 Scenario: Successful adding 
 	When I typed the right service data 
-	Then I should see successful adding 
+	Then I should see successful adding service

@@ -1,4 +1,4 @@
-Feature: Login 
+Feature: Logout 
 
 	I want to logout from the Beauty Center Website
 	

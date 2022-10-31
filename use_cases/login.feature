@@ -30,13 +30,13 @@ Scenario: Wrong username
 	Then I should see username is incorrect 
 		
 Scenario: Login successfully for admin 
-	When I type right username, right password and the usertype is an admin 
-	Then I should see Login successful for admin 
+	When I type right username, right password and the user type is an admin 
+	Then I should see this message Login successful for admin 
 	
 Scenario: Login successfully for customer 
-	When I type right username, right password and the usertype is a customer 
-	Then I should see Login successful for user 
+	When I type right username, right password and the user type is a customer 
+	Then I should see this message Login successful for customer 
 	
 Scenario: Login successfully for employee 
-	When I type right username, right password and the usertype is a employee 
-	Then I should see Login successful for employee
+	When I type right username, right password and the user type is an employee 
+	Then I should see this message Login successful for employee

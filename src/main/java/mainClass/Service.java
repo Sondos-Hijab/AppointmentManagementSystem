@@ -1,18 +1,18 @@
 package mainClass;
 
-public class service {
+public class Service {
 	private String serviceId;
 	private String serviceName;
 	private String employeeId;
 	private int price;
 	private int time;
-	public service(){
+	public Service(){
 		this.serviceName = "";
 		this.employeeId = "";
 		this.price = 0;
 		this.time = 0;
 	}
-	public service (String serviceId ,String serviceName,  String employeeId, int price , int time) {
+	public Service (String serviceId ,String serviceName,  String employeeId, int price , int time) {
 		this.serviceId = serviceId;
 		this.serviceName = serviceName;
 		this.employeeId = employeeId;

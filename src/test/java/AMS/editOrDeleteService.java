@@ -9,23 +9,23 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import mainClass.Admin;
-import mainClass.service;
+import mainClass.Service;
 
 public class editOrDeleteService {
 
-	static List<service> listOfServices = new ArrayList<service>();
+	static List<Service> listOfServices = new ArrayList<Service>();
 	static List<List<String>> servicesList;
 
 	Admin admin = new Admin("1", "leen", "12345678", "leen.ahmad@gmail.com");
 
-	service ServiceCase1 = new service("9", "colouring hair", "2", 100, 2);
-	service ServiceCase2 = new service("1", "colouring hair", "2", 100, 2);
-	service ServiceCase3 = new service("5", "bride", "3", 4000, 8);
+	Service ServiceCase1 = new Service("9", "colouring hair", "2", 100, 2);
+	Service ServiceCase2 = new Service("1", "colouring hair", "2", 100, 2);
+	Service ServiceCase3 = new Service("5", "bride", "3", 4000, 8);
 
 	static boolean case1 = false;
 	static boolean case2 = false;
 	static boolean case3 = false;
-	
+
 	static boolean edit = false;
 	static boolean delete = false;
 
@@ -36,15 +36,15 @@ public class editOrDeleteService {
 		System.out.println("Deleting or Editing Service test cases");
 		servicesList = dataTable.asLists();
 		for (int i = 1; i < servicesList.size(); i++) {
-			service temp = new service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
+			Service temp = new Service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
 					servicesList.get(i).get(2).toString(), Integer.parseInt(servicesList.get(i).get(3)),
 					Integer.parseInt(servicesList.get(i).get(4)));
 			listOfServices.add(temp);
 		}
 	}
 
-	@When("I type unexist service id")
-	public void iTypeUnexistServiceId() {
+	@When("I type unexist service id number")
+	public void iTypeUnexistServiceIdNumber() {
 		admin.addService(ServiceCase1);
 		if (!admin.checkServiceIdInTheServiceList(
 				admin.getServices().get(admin.getServices().size() - 1).getServiceId(), listOfServices)) {
@@ -52,19 +52,19 @@ public class editOrDeleteService {
 		}
 	}
 
-	@Then("I should see the number for the service Id is incorrect")
-	public void iShouldSeeTheNumberForTheServiceIdIsIncorrect() {
+	@Then("I should see this message the number for the service Id is incorrect")
+	public void iShouldSeeThisMessageTheNumberForTheServiceIdIsIncorrect() {
 		if (case1) {
-			System.out.println("Case1: The number for the service Id is incorrect");
+			System.out.println("Case1: The number for the Service Id is incorrect");
 			assertTrue(true);
 		}
 	}
 
-	@When("I typed the right service id to delete specific service")
-	public void iTypedTheRightServiceIdToDeleteSpecificService() {
+	@When("I typed the right service id number to delete specific service")
+	public void iTypedTheRightServiceIdNumberToDeleteSpecificService() {
 		admin.addService(ServiceCase2);
 		delete = true;
-		
+
 		if (admin.checkServiceIdInTheServiceList(admin.getServices().get(admin.getServices().size() - 1).getServiceId(),
 				listOfServices) && delete) {
 			case2 = true;
@@ -72,11 +72,10 @@ public class editOrDeleteService {
 					admin.getServices().get(admin.getServices().size() - 1).getServiceId(), listOfServices);
 
 		}
-	
 	}
 
-	@When("I typed the right service id to edit specific service")
-	public void iTypedTheRightServiceIdToEditSpecificService() {
+	@When("I typed the right service id number to edit specific service")
+	public void iTypedTheRightServiceIdNumberToEditSpecificService() {
 		admin.addService(ServiceCase3);
 		edit = true;
 		if (admin.checkServiceIdInTheServiceList(admin.getServices().get(admin.getServices().size() - 1).getServiceId(),
@@ -86,7 +85,7 @@ public class editOrDeleteService {
 					listOfServices, newPrice);
 
 		}
-	
+
 	}
 
 	@Then("I should see successful deleting")

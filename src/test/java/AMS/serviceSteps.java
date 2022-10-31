@@ -10,28 +10,28 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import mainClass.Admin;
-import mainClass.service;
-import mainClass.employee;
+import mainClass.Service;
+import mainClass.Employee;
 
 public class serviceSteps {
-	static List<service> listOfServices = new ArrayList<service>();
-	static List<employee> listOfEmployees = new ArrayList<employee>();
+	static List<Service> listOfServices = new ArrayList<Service>();
+	static List<Employee> listOfEmployees = new ArrayList<Employee>();
 	static List<List<String>> servicesList;
 
 	Admin admin = new Admin("1", "leen", "12345678", "leen.ahmad@gmail.com");
 
 
-	employee employee1 = new employee("1", "Ali", "12yt456", "Ali.ahmad@gmail.com");
-	employee employee2 = new employee("2", "Ahmad", "uuu12ppp", "Ahmad.zaid@gmail.com");
-	employee employee3 = new employee("3", "Amal", "1234oo56", "Amal.sami@gmail.com");
-	employee employee4 = new employee("4", "Tala", "12i9uy3456", "Tala.omar@gmail.com");
-	employee employee5 = new employee("5", "leen", "12i9uii56", "leen.omar@gmail.com");
-	employee employee6 = new employee("6", "Lena", "123ttt456", "Lena.baker@gmail.com");
+	Employee employee1 = new Employee("1", "Ali", "12yt456", "Ali.ahmad@gmail.com");
+	Employee employee2 = new Employee("2", "Ahmad", "uuu12ppp", "Ahmad.zaid@gmail.com");
+	Employee employee3 = new Employee("3", "Amal", "1234oo56", "Amal.sami@gmail.com");
+	Employee employee4 = new Employee("4", "Tala", "12i9uy3456", "Tala.omar@gmail.com");
+	Employee employee5 = new Employee("5", "leen", "12i9uii56", "leen.omar@gmail.com");
+	Employee employee6 = new Employee("6", "Lena", "123ttt456", "Lena.baker@gmail.com");
 
-	service ServiceCase1 = new service("6", "makeup", "2", 100, 2);
-	service ServiceCase2 = new service("6", "makeup", "9", 100, 2);
-	service ServiceCase3 = new service("6", "colouring hair", "5", 100, 2);
-	service ServiceCase4 = new service("6", "makeup", "5", 100, 2);
+	Service ServiceCase1 = new Service("6", "makeup", "2", 100, 2);
+	Service ServiceCase2 = new Service("6", "makeup", "9", 100, 2);
+	Service ServiceCase3 = new Service("6", "colouring hair", "5", 100, 2);
+	Service ServiceCase4 = new Service("6", "makeup", "5", 100, 2);
 
 	static boolean case1 = false;
 	static boolean case2 = false;
@@ -44,7 +44,7 @@ public class serviceSteps {
 		System.out.println("Adding Service test cases");
 		servicesList = dataTable.asLists();
 		for (int i = 1; i < servicesList.size(); i++) {
-			service temp = new service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
+			Service temp = new Service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
 					servicesList.get(i).get(2).toString(), Integer.parseInt(servicesList.get(i).get(3)),
 					Integer.parseInt(servicesList.get(i).get(4)));
 			listOfServices.add(temp);
@@ -58,17 +58,15 @@ public class serviceSteps {
 				admin.getServices().get(admin.getServices().size() - 1).getEmployeeId(), listOfServices)) {
 			case1 = true;
 		}
-
 	}
-
 	@Then("I should see each employee provides only one service")
 	public void iShouldSeeEachEmployeeProvidesOnlyOneService() {
 		if (case1) {
-			System.out.println("Case1: Each employee provides only one service");
+			System.out.println("Case1: Each Employee provides only one Service");
 			assertTrue(true);
 		}
-
 	}
+	
 
 	@When("I type unexist employee id")
 	public void iTypeUnexistEmployeeId() {
@@ -86,16 +84,15 @@ public class serviceSteps {
 				case2 = true;
 			}
 		}
-
 	}
-
 	@Then("I should see the number for the employee Id is incorrect")
 	public void iShouldSeeTheNumberForTheEmployeeIdIsIncorrect() {
 		if (case2) {
-			System.out.println("Case2: The number for the employee Id is incorrect");
+			System.out.println("Case2: The number for the Employee Id is incorrect");
 			assertTrue(true);
 		}
 	}
+
 
 	@When("I try to add a service but this service is exist")
 	public void iTryToAddAServiceButThisServiceIsExist() {
@@ -112,17 +109,19 @@ public class serviceSteps {
 		}
 
 	}
-
 	@Then("I should see the service you are trying to add is already added")
 	public void iShouldSeeTheServiceYouAreTryingToAddIsAlreadyAdded() {
 		if (case3) {
-			System.out.println("Case3: The service you are trying to add is already added");
+			System.out.println("Case3: The Service you are trying to add is already added");
 			assertTrue(true);
 		}
 	}
 
+
+
+
 	@When("I typed the right service data")
-	public void iTypedTheRightServiceDate() {
+	public void iTypedTheRightServiceData() {
 		admin.addService(ServiceCase4);
 		if (!admin.checkEmployeeIdInTheServiceList(
 				admin.getServices().get(admin.getServices().size() - 1).getEmployeeId(), listOfServices)) {
@@ -136,12 +135,18 @@ public class serviceSteps {
 		}
 	}
 
-	@Then("I should see successful adding")
-	public void iShouldSeeSuccessfulAdding() {
+
+
+
+	@Then("I should see successful adding service")
+	public void iShouldSeeSuccessfulAddingService() {
 		if (case4) {
-			System.out.println("Case4: The service is adding successfully");
+			System.out.println("Case4: The Service is adding successfully");
 			assertTrue(true);
 		}
 	}
+
+
+
 
 }

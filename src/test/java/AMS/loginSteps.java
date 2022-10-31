@@ -11,14 +11,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import mainClass.Admin;
 import mainClass.Customer;
-import mainClass.employee;
-import mainClass.user;
+import mainClass.Employee;
+import mainClass.User;
 
 public class loginSteps {
 
 
 	
-	static List<user> listOfUsers = new ArrayList<user>();
+	static List<User> listOfUsers = new ArrayList<User>();
 	static List<List<String>> usersList1;
 	static List<List<String>> usersList2;
 	static List<List<String>> usersList3;
@@ -33,14 +33,14 @@ public class loginSteps {
 	
 	static List<Admin> listOfAdmins = new ArrayList<Admin>();
 	static List<Customer> listOfCustomers = new ArrayList<Customer>();
-	static List<employee> listOfEmployees = new ArrayList<employee>();
+	static List<Employee> listOfEmployees = new ArrayList<Employee>();
 
-	user userCase1 = new user("Lena", "12345678hz");
-	user userCase2 = new user("Noor", "12345678hz");
-	user userCase3 = new user("Noor", "123456789");
-	user userCase4 = new user("Raghad", "1234ttttt");
-	user userCase5 = new user("Ali", "111111111");
-	user userCase6 = new user("Reema", "yyyyhpp12");
+	User userCase1 = new User("Lena", "12345678hz");
+	User userCase2 = new User("Noor", "12345678hz");
+	User userCase3 = new User("Noor", "123456789");
+	User userCase4 = new User("Raghad", "1234ttttt");
+	User userCase5 = new User("Ali", "111111111");
+	User userCase6 = new User("Reema", "yyyyhpp12");
 
 	
 
@@ -49,7 +49,7 @@ public class loginSteps {
 		System.out.println("Login test cases");
 		usersList1 = dataTable.asLists();	
 		for(int i=1;i<usersList1.size();i++) {
-			user temp = new user(usersList1.get(i).get(0).toString(), usersList1.get(i).get(1)); 
+			User temp = new User(usersList1.get(i).get(0).toString(), usersList1.get(i).get(1)); 
 			Admin temp2 = new Admin(usersList1.get(i).get(0).toString(), usersList1.get(i).get(1)); 
 			 listOfUsers.add(temp);
 			 listOfAdmins.add((Admin) temp2);
@@ -61,10 +61,10 @@ public class loginSteps {
 	public void theDataTableForExistingEmployees(io.cucumber.datatable.DataTable dataTable) {
 		usersList2 = dataTable.asLists();	
 		for(int i=1;i<usersList2.size();i++) {
-			user temp = new user(usersList2.get(i).get(0).toString(), usersList2.get(i).get(1)); 
-			employee temp2 = new employee(usersList2.get(i).get(0).toString(), usersList2.get(i).get(1)); 
+			User temp = new User(usersList2.get(i).get(0).toString(), usersList2.get(i).get(1)); 
+			Employee temp2 = new Employee(usersList2.get(i).get(0).toString(), usersList2.get(i).get(1)); 
 			 listOfUsers.add(temp);
-			 listOfEmployees.add((employee) temp2);
+			 listOfEmployees.add((Employee) temp2);
 		}
 
 	}
@@ -72,7 +72,7 @@ public class loginSteps {
 	public void theDataTableForExistingCustomers(io.cucumber.datatable.DataTable dataTable) {
 		usersList3 = dataTable.asLists();	
 		for(int i=1;i<usersList3.size();i++) {
-			user temp = new user(usersList3.get(i).get(0).toString(), usersList3.get(i).get(1)); 
+			User temp = new User(usersList3.get(i).get(0).toString(), usersList3.get(i).get(1)); 
 			Customer temp2 = new Customer(usersList3.get(i).get(0).toString(), usersList3.get(i).get(1)); 
 			 listOfUsers.add(temp);
 			 listOfCustomers.add((Customer) temp2);
@@ -140,9 +140,8 @@ public class loginSteps {
 		}
 	}
 
-
-	@When("I type right username, right password and the usertype is an admin")
-	public void iTypeRightUsernameRightPasswordAndTheUsertypeIsAnAdmin() {
+	@When("I type right username, right password and the user type is an admin")
+	public void iTypeRightUsernameRightPasswordAndTheUserTypeIsAnAdmin() {
 		for(int i=0;i<listOfAdmins.size();i++) {
 			if(userCase4.getUsername().equals(listOfAdmins.get(i).getUsername()) && 
 					userCase4.getPassword().equals(listOfAdmins.get(i).getPassword())) {
@@ -151,18 +150,19 @@ public class loginSteps {
 			}
 		}
 	}
-	@Then("I should see Login successful for admin")
-	public void iShouldSeeLoginSuccessfulForAdmin() {	
-			if(case4) {
-				System.out.println("Case4: Login Successful welcome to Admins Home Page");
-				assertTrue(case4);
-			}	
+
+
+	@Then("I should see this message Login successful for admin")
+	public void iShouldSeeThisMessageLoginSuccessfulForAdmin() {
+		if(case4) {
+			System.out.println("Case4: Login Successful welcome to Admins Home Page");
+			assertTrue(case4);
+		}	
 	}
 
 
-
-	@When("I type right username, right password and the usertype is a customer")
-	public void iTypeRightUsernameRightPasswordAndTheUsertypeIsACustomer() {
+	@When("I type right username, right password and the user type is a customer")
+	public void iTypeRightUsernameRightPasswordAndTheUserTypeIsACustomer() {
 		for(int i=0;i<listOfCustomers.size();i++) {
 			if(userCase5.getUsername().equals(listOfCustomers.get(i).getUsername()) && 
 					userCase5.getPassword().equals(listOfCustomers.get(i).getPassword())) {
@@ -171,16 +171,18 @@ public class loginSteps {
 			}
 		}
 	}
-	@Then("I should see Login successful for user")
-	public void iShouldSeeLoginSuccessfulForUser() {
+	@Then("I should see this message Login successful for customer")
+	public void iShouldSeeThisMessageLoginSuccessfulForCustomer() {
 		if(case5) {
 			System.out.println("Case4: Login Successful welcome to Customers Home Page");
 			assertTrue(case5);
 		}
 	}
 
-	@When("I type right username, right password and the usertype is a employee")
-	public void iTypeRightUsernameRightPasswordAndTheUsertypeIsAEmployee() {
+	
+
+	@When("I type right username, right password and the user type is an employee")
+	public void iTypeRightUsernameRightPasswordAndTheUserTypeIsAnEmployee() {
 		for(int i=0;i<listOfEmployees.size();i++) {
 			if(userCase6.getUsername().equals(listOfEmployees.get(i).getUsername()) && 
 					userCase6.getPassword().equals(listOfEmployees.get(i).getPassword())) {
@@ -189,13 +191,12 @@ public class loginSteps {
 			}
 		}
 	}
-	@Then("I should see Login successful for employee")
-	public void iShouldSeeLoginSuccessfulForEmployee() {
+	@Then("I should see this message Login successful for employee")
+	public void iShouldSeeThisMessageLoginSuccessfulForEmployee() {
 		if(case6) {
 			System.out.println("Case4: Login Successful welcome to Employees Home Page");
 			assertTrue(case6);
 		}
 	}
-
 
 }
