@@ -259,6 +259,79 @@ public class Customer extends User {
 
 
 
+	public boolean editAppointment(String appointmentId, int startingHour, int year, int month, int day, MainSystem mainsystem) {
+		boolean yearFlag = true, monthFlag = true, dayFlag = true, hourFlag = true;
+
+		for(int i=0;i<this.getAppointments().size();i++) {
+
+			Appointment appointment = this.getAppointments().get(i);
+			if(appointment.getId().equals(appointmentId)) {
+				if(this.checkIfTheEnteredYearNumberIsWrong(year, mainsystem)) {
+					yearFlag = false;
+				}
+				if(this.checkIfTheEnteredMonthNumberIsWrong(mainsystem, year, month)) {
+					monthFlag = false;
+				}
+				if(this.checkIfTheEnteredMonthNumberIsWrong(mainsystem, year, month)) {
+					monthFlag = false;
+				}
+				if(this.checkIfTheEnteredDayNumberIsWrong(mainsystem, year, month, day)) {
+					dayFlag = false;
+				}
+				Service service = new Service();
+				//chosen service
+				for(int j=0;j<mainsystem.getServices().size();j++) {
+					if(mainsystem.getServices().get(j).getId().equals(appointment.getService().getId())) {
+						service = mainsystem.getServices().get(j);
+					}
+				}
+				if(this.checkIfTheEnteredHourNumberIsWrong(mainsystem, service, startingHour)) {
+					hourFlag = false;
+				}
+				
+				if(yearFlag && monthFlag && dayFlag && hourFlag) {
+					appointment.setYear(year);
+					appointment.setMonth(month);
+					appointment.setDay(day);
+					appointment.setStartingHour(startingHour);
+					System.out.println("edited Successfully!\n");
+					return true;
+				}
+			}
+			
+			if(!yearFlag || !monthFlag || !dayFlag || !hourFlag) {
+				break;
+			}
+			
+			
+		}
+		
+		if(!yearFlag) {
+			System.out.println("Wrong year number!");
+		}
+		if(!monthFlag) {
+			System.out.println("Wrong month number!");
+		}
+		if(!dayFlag) {
+			System.out.println("Wrong day number!");
+		}
+		if(!hourFlag) {
+			System.out.println("Wrong starting hour number!");
+		}
+		
+		if(!yearFlag || !monthFlag || !dayFlag || !hourFlag) {
+		   return false;
+		}
+
+		else {
+			System.out.println("Wrong appointment id! can't edit");
+			return false;
+		}
+		
+	}
+
+
+
 
 }
 

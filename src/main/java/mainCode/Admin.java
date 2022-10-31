@@ -10,7 +10,7 @@ public class Admin extends User{
 		}
 		System.out.println();
 		return true;
-	}
+	} 
 
 	public static boolean generateEmployeesReport(MainSystem mainsystem) {
 		System.out.println("Employees' Report:");
