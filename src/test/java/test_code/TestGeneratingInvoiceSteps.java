@@ -64,7 +64,7 @@ public class TestGeneratingInvoiceSteps {
 	    
 	}
 	
-	@Test
+	
 	@Then("the customer should see the generated invoice for the multiple appointment")
 	public void theCustomerShouldSeeTheGeneratedInvoiceForTheMultipleAppointment() {
 		 assertTrue(customer.generateAnInvoice());

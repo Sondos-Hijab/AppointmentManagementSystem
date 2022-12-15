@@ -90,22 +90,28 @@ public class Customer extends User {
 	}
 	
 	public boolean checkIfTheEnteredYearNumberIsWrong(int yearNumber, MainSystem mainsystem) {
-		if(yearNumber == mainsystem.currentYear || yearNumber == mainsystem.currentYear+1) return false;
-		else return true;
+		boolean flag;
+		if((yearNumber == mainsystem.currentYear) || (yearNumber == (mainsystem.currentYear+1))) flag = false;
+		else flag = true;
+	    
+		return flag;
 	}
 	
 	public boolean checkIfTheEnteredMonthNumberIsWrong(MainSystem mainsystem, int chosenYear, int month) {
+		boolean flag;
 		if(month>=1 && month<=12) {
 			if(chosenYear == mainsystem.currentYear) {
-				if(month<mainsystem.currentMonth) return true;
-				else  return false;
+				if(month<mainsystem.currentMonth) flag = true;
+				else  flag = false;
 			}
-			else return false;
+			else flag = false;
 		}
-		else return true;
+		else flag = true;
+		
+		return flag;
 	}
 
-	
+
 	
 	public boolean miniHelper (MainSystem mainsystem, int month,int dayNumber, int endday) {
 		if(dayNumber <= mainsystem.currentDay) return true;
@@ -162,8 +168,7 @@ public class Customer extends User {
 		}
 		return false;
 	}
-	
-	
+		
 	public boolean checkIfThereIsAConflict(MainSystem mainsystem, Appointment appointment) {
 		for(int i=0;i<mainsystem.getSystemAppointments().size();i++) {
 			if(mainsystem.getSystemAppointments().get(i).getYear() == appointment.getYear() && 
@@ -177,7 +182,7 @@ public class Customer extends User {
 		return false;
 	}
 	
-	
+
 	public boolean bookAppointment(MainSystem mainsystem, int chosenServiceNumber, int chosenYear, int chosenMonth, int chosenDay,
 			int chosenHour) {
 
@@ -358,6 +363,7 @@ public class Customer extends User {
 	 
 	 public static boolean isValidPassword(String password)
 	    {
+		 boolean flag;
 	      int digitsCount=0;
 	      String inputPassword= password;
 	      int passLength=inputPassword.length();
@@ -367,14 +373,15 @@ public class Customer extends User {
 	    		  digitsCount++;
 	      }
 	      if (digitsCount>0 && passLength >=8) 
-	    	  return true;
+	    	  flag =  true;
 	      else
-		   return false;
+	    	  flag = false;
 	      
+	      return flag;
 	    }
 	 
-	 public static boolean usernameIsUsed(String username,MainSystem main){
-	    {
+	 
+	 public static boolean usernameIsUsedHelper (String username,MainSystem main) {
 		 for(int i=0;i<main.getCustomers().size();i++) {
 				if(main.getCustomers().get(i).getUsername().equals(username)) {
 					
@@ -382,20 +389,24 @@ public class Customer extends User {
 				}
 			}
 			return false;
-		}
-	      
+	 }
+	 public static boolean usernameIsUsed(String username,MainSystem main){
+		 return usernameIsUsedHelper(username, main);
 	    }
 	 
-	 public static boolean emailIsUsed(String email,MainSystem main){
-		    {
-			 for(int i=0;i<main.getCustomers().size();i++) {
-					if(main.getCustomers().get(i).getEmail().equals(email)) {
-						
-						return true;
-					}
+	 
+	 
+	 public static boolean emailIsUsedHelper(String email,MainSystem main) {
+		 for(int i=0;i<main.getCustomers().size();i++) {
+				if(main.getCustomers().get(i).getEmail().equals(email)) {
+					
+					return true;
 				}
-				return false;
 			}
+			return false;
+	 }
+	 public static boolean emailIsUsed(String email,MainSystem main){
+		 return emailIsUsedHelper(email, main);
 		      
 		    }
 	 

@@ -87,14 +87,20 @@ public class Admin extends User{
 		}		
 	}
 	public void deleteServiceFromTheServiceList(String serviceId, List<Service> listOfServices) {
-		for(int i=0; i<listOfServices.size(); i++) 
-		{
-			if(serviceId.equals(listOfServices.get(i).getServiceId()))
+		
+		if(!listOfServices.isEmpty()) {
+			for(int i=0; i<listOfServices.size(); i++) 
 			{
-				listOfServices.remove(i);
+				if(listOfServices.get(i).getServiceId().equals(serviceId)) {
+					listOfServices.remove(i);
+				}
+	
 			}
-		}		
-	}
+		}
+				
+	
+}
+	
 	public static boolean generateCustomersReport(MainSystem mainsystem) {
 		logger.info("Customers' Report:");
 		for(int i=0;i<mainsystem.getCustomers().size();i++) {
@@ -176,18 +182,19 @@ public class Admin extends User{
 		return false;
 	}
 
-
-	public static boolean deleteCustomer(String id, MainSystem main){
-	    {
-		 for(int i=0;i<main.getCustomers().size();i++) {
-				if(main.getCustomers().get(i).getId().equals(id) ) {
-					
-					return true;
-				}
+	
+	public static boolean deleteCustomerHelper(String id, MainSystem main) {
+		for(int i=0;i<main.getCustomers().size();i++) {
+			if(main.getCustomers().get(i).getId().equals(id) ) {
+				
+				return true;
 			}
-			return false;
 		}
-	      
+		return false;
+	}
+	public static boolean deleteCustomer(String id, MainSystem main){
+		
+	      return deleteCustomerHelper(id, main);
 	    }
 
 

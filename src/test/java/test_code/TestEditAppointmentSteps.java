@@ -119,7 +119,7 @@ public class TestEditAppointmentSteps {
 		appointmentId = "1";
 	}
 	
-	@Test
+	
 	@Then("the appointment will be edited and it will give a message telling the appointment is edited successfully")
 	public void theAppointmentWillBeEditedAndItWillGiveAMessageTellingTheAppointmentIsEditedSuccessfully() {
 		scenario6 = customer.editAppointment(appointmentId,14, 2023, 12, 4, mainsystem);

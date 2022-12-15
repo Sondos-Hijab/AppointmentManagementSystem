@@ -56,7 +56,7 @@ public class TestDeleteAppointmentSteps {
 		scenario2 = customer.deleteAppointment(enteredAppointmentId);
 	}
 	
-	@Test
+
 	@Then("The system will give a message telling that the appointment is deleted successfully")
 	public void theSystemWillGiveAMessageTellingThatTheAppointmentIsDeletedSuccessfully() {
 		assertTrue(scenario2);

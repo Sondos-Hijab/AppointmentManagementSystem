@@ -1,8 +1,8 @@
 package main_code;
 
 	public class Providers {
-	    public String id;
-	    public String provider;
+	    private String id;
+	    private String provider;
 		
 		public Providers() {
 			
@@ -17,15 +17,15 @@ package main_code;
 		public void setId(String id) {
 			this.id = id;
 		}
-		public String getProvider() {
-			return provider;
-		}
 		public void setname(String name) {
 			this.provider = name;
 		}
+		public String getProvider() {
+			return provider;
+		}
+
 		
-		
-		
+	
 	}
 
 

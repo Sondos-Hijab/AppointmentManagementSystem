@@ -124,7 +124,7 @@ public class TestConvertingAppointmentToVisitSteps {
 		feedback = "The services you provide are good!";
 	}
 	
-	@Test
+	
 	@Then("A visit for the appointment will be added to the customer visits record and to the system visits record")
 	public void aVisitForTheAppointmentWillBeAddedToTheCustomerVisitsRecordAndToTheSystemVisitsRecord() {
 		logger.info("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);

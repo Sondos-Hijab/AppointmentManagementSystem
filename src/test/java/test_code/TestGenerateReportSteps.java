@@ -85,7 +85,7 @@ public class TestGenerateReportSteps {
 		scenario1 = Admin.generateCustomersReport(mainsystem);
 	}
 	
-	@Test
+	
 	@Then("The system will generate a report about the customers")
 	public void theSystemWillGenerateAReportAboutTheCustomers() {
 	    assertTrue(scenario1);
@@ -97,7 +97,7 @@ public class TestGenerateReportSteps {
 		scenario2 = Admin.generateEmployeesReport(mainsystem);
 	}
 	
-	@Test
+	
 	@Then("The system will generate a report about the employees")
 	public void theSystemWillGenerateAReportAboutTheEmployees() {
 		assertTrue(scenario2);
@@ -109,7 +109,7 @@ public class TestGenerateReportSteps {
 		scenario3 = Admin.generateAppointmentsReport(mainsystem);
 	}
 	
-	@Test
+	
 	@Then("The system will generate a report about the appointments")
 	public void theSystemWillGenerateAReportAboutTheAppointments() {
 		assertTrue(scenario3);
@@ -121,7 +121,7 @@ public class TestGenerateReportSteps {
 		scenario4 = Admin.generateVisitsReport(mainsystem);
 	}
 	
-	@Test
+	
 	@Then("The system will generate a report about the visits")
 	public void theSystemWillGenerateAReportAboutTheVisits() {
 		assertTrue(scenario4);
@@ -134,7 +134,7 @@ public class TestGenerateReportSteps {
 		scenario5 = Admin.generateServicesReport(mainsystem);
 	}
 	
-	@Test
+	
 	@Then("The system will generate a report about the services")
 	public void theSystemWillGenerateAReportAboutTheServices() {
 		assertTrue(scenario5);
@@ -146,7 +146,7 @@ public class TestGenerateReportSteps {
 		scenario6 = Admin.generateGeneralReport(mainsystem);
 	}
 	
-	@Test
+	
 	@Then("The system will generate a general report")
 	public void theSystemWillGenerateAGeneralReport() {
 		assertTrue(scenario6);
