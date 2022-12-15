@@ -344,8 +344,9 @@ public class Customer extends User {
 
 	 public static boolean isValidEmail(String email)
 	    {
-	        String emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-	                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+		 	String emailRegex1 = "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	        String emailRegex2 = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@";
+	        String emailRegex = "" + emailRegex2 + emailRegex1;
 
 	                              
 	        Pattern pat = Pattern.compile(emailRegex);
