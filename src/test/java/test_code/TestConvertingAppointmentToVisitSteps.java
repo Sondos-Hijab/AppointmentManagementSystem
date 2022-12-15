@@ -3,6 +3,7 @@ package test_code;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
@@ -16,9 +17,9 @@ import main_code.MainSystem;
 import main_code.Service;
 import main_code.Visit;
 
-public class ConvertingAppointmentToVisitSteps {
+public class TestConvertingAppointmentToVisitSteps {
 
-	
+	private static final Logger logger = Logger.getLogger(TestConvertingAppointmentToVisitSteps.class.getName());
 	Employee employee = new Employee ("1", "Falak", "Falak1234", "Falak@gmail.com");
 	Customer customer = new Customer ("1", "aseel", "aseel1234","aseel@gmail.com",8563);
 	Service service = new Service("1", "makeup","1", 200, 2);
@@ -60,12 +61,13 @@ public class ConvertingAppointmentToVisitSteps {
 		
 	}
 	
+	@Test
 	@Then("The employee should see username is not found")
 	public void theEmployeeShouldSeeUsernameIsNotFound() {
-		System.out.println("\n \n \n");
-		System.out.println("\n \nCustomer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
+		logger.info("\n \n \n");
+		logger.info("\n \nCustomer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
 		assertTrue(!employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
-		System.out.println("Test Case 1 : wrong customer username worked");
+		logger.info("Test Case 1 : wrong customer username worked");
 	}
 
 
@@ -80,11 +82,12 @@ public class ConvertingAppointmentToVisitSteps {
 		feedback = "The services you provide are good!";
 	}
 	
+	@Test
 	@Then("the employee should see appointment id is wrong")
 	public void theEmployeeShouldSeeAppointmentIdIsWrong() {
-		System.out.println("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
+		logger.info("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
 		assertTrue(!employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
-		System.out.println("Test Case 2 : wrong appointment id worked");
+		logger.info("Test Case 2 : wrong appointment id worked");
 	}
 	
 	
@@ -104,10 +107,11 @@ public class ConvertingAppointmentToVisitSteps {
 		
 	}
 	
+	@Test
 	@Then("the employee should see can't convert it to a visit because it should be today")
 	public void theEmployeeShouldSeeCanTConvertItToAVisitBecauseItShouldBeToday() {
 		assertTrue(!employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
-		System.out.println("Test Case 3 : wrong day worked");
+		logger.info("Test Case 3 : wrong day worked");
 	}
 	
 
@@ -120,20 +124,21 @@ public class ConvertingAppointmentToVisitSteps {
 		feedback = "The services you provide are good!";
 	}
 	
+	@Test
 	@Then("A visit for the appointment will be added to the customer visits record and to the system visits record")
 	public void aVisitForTheAppointmentWillBeAddedToTheCustomerVisitsRecordAndToTheSystemVisitsRecord() {
-		System.out.println("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
+		logger.info("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
 		assertTrue(employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
-		System.out.println("Test Case 4 : A visit for the appointment will be added to the customer visits record and to the system visits record");
+		logger.info("Test Case 4 : A visit for the appointment will be added to the customer visits record and to the system visits record");
 	}
 	
 	@Then("The employee should see Converting appointment to a visit went successfully")
 	public void theEmployeeShouldSeeConvertingAppointmentToAVisitWentSuccessfully() {
-		System.out.println("Converting appointment to a visit went successfully");
-		System.out.println("Priniting customer's visit");
+		logger.info("Converting appointment to a visit went successfully");
+		logger.info("Priniting customer's visit");
 		customer.getVisits().get(0).printVisit();
 		
-		System.out.println("\n \n \n");
+		logger.info("\n \n \n");
 	}
 	
 }

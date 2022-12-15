@@ -1,12 +1,14 @@
 package main_code;
 
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 
 
 
 	public class Employee extends User {
-		
+		private static final Logger logger = Logger.getLogger(Employee.class.getName());
+
 		public Employee (String userId, String username, String password, String email){
 			super(userId, username, password, email);
 			
@@ -54,17 +56,17 @@ import java.time.LocalDate;
 			
 			if (!flagCustomerUsername || !flagAppointmentId) 
 				{
-				System.out.println("The customer username or the appointment id or both are wrong!");
+				logger.info("The customer username or the appointment id or both are wrong!");
 				return false;
 				}
-			if(!(appointment.getYear() == currentYear) || !(appointment.getMonth() == currentMonth) || !(appointment.getDay() == currentDay)) {
-				System.out.println("The appointment date isn't today!");
+			if((appointment.getYear() != currentYear) || (appointment.getMonth() != currentMonth) || (appointment.getDay() != currentDay)) {
+				logger.info("The appointment date isn't today!");
 				return false;
 			}
 			else {
 				Visit visit = new Visit(appointment, feedback);
 				customer.getVisits().add(visit);
-				System.out.println("Visit added successfully!");
+				logger.info("Visit added successfully!");
 				return true;
 			}
 		}

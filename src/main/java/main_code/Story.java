@@ -1,20 +1,20 @@
 package main_code;
 
 public class Story {
-	private String StoryId;
+	private String storyId;
 	private String myStory;
 
 	public Story() {
 	}
-	public Story(String StoryId,String myStory) {
-		this.StoryId =  StoryId;
+	public Story(String storyId,String myStory) {
+		this.storyId =  storyId;
 		this.myStory =  myStory;
 	}
-	public void setStoryId(String StoryId) {
-		this.StoryId =  StoryId;
+	public void setStoryId(String storyId) {
+		this.storyId =  storyId;
 	}
 	public String getStoryId() {
-		return StoryId;
+		return storyId;
 	}
 	public void setStory(String myStory) {
 		this.myStory =  myStory;

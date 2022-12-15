@@ -2,6 +2,8 @@ package test_code;
 
 import static org.junit.Assert.*;
 
+import java.util.logging.Logger;
+
 import org.junit.Test;
 
 import io.cucumber.java.en.Then;
@@ -14,7 +16,8 @@ import main_code.MainSystem;
 import main_code.Service;
 import main_code.Visit;
 
-public class generateReportSteps {
+public class TestGenerateReportSteps {
+
 
 	boolean scenario1 = false, scenario2 = false, scenario3 = false, scenario4 = false, scenario5 = false, scenario6 = false;
 	
@@ -82,6 +85,7 @@ public class generateReportSteps {
 		scenario1 = Admin.generateCustomersReport(mainsystem);
 	}
 	
+	@Test
 	@Then("The system will generate a report about the customers")
 	public void theSystemWillGenerateAReportAboutTheCustomers() {
 	    assertTrue(scenario1);
@@ -93,6 +97,7 @@ public class generateReportSteps {
 		scenario2 = Admin.generateEmployeesReport(mainsystem);
 	}
 	
+	@Test
 	@Then("The system will generate a report about the employees")
 	public void theSystemWillGenerateAReportAboutTheEmployees() {
 		assertTrue(scenario2);
@@ -104,6 +109,7 @@ public class generateReportSteps {
 		scenario3 = Admin.generateAppointmentsReport(mainsystem);
 	}
 	
+	@Test
 	@Then("The system will generate a report about the appointments")
 	public void theSystemWillGenerateAReportAboutTheAppointments() {
 		assertTrue(scenario3);
@@ -115,6 +121,7 @@ public class generateReportSteps {
 		scenario4 = Admin.generateVisitsReport(mainsystem);
 	}
 	
+	@Test
 	@Then("The system will generate a report about the visits")
 	public void theSystemWillGenerateAReportAboutTheVisits() {
 		assertTrue(scenario4);
@@ -127,6 +134,7 @@ public class generateReportSteps {
 		scenario5 = Admin.generateServicesReport(mainsystem);
 	}
 	
+	@Test
 	@Then("The system will generate a report about the services")
 	public void theSystemWillGenerateAReportAboutTheServices() {
 		assertTrue(scenario5);
@@ -138,6 +146,7 @@ public class generateReportSteps {
 		scenario6 = Admin.generateGeneralReport(mainsystem);
 	}
 	
+	@Test
 	@Then("The system will generate a general report")
 	public void theSystemWillGenerateAGeneralReport() {
 		assertTrue(scenario6);

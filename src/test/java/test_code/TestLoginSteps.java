@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
@@ -16,8 +17,9 @@ import main_code.Employee;
 import main_code.User;
 
 
-public class loginSteps {
+public class TestLoginSteps {
 
+	private static final Logger logger = Logger.getLogger(TestLoginSteps.class.getName());
 
 	
 	static List<User> listOfUsers = new ArrayList<User>();
@@ -48,7 +50,7 @@ public class loginSteps {
 
 	@Given("the data table for existing Admins")
 	public void theDataTableForExistingAdmins(io.cucumber.datatable.DataTable dataTable) {
-		System.out.println("Login test cases");
+		logger.info("Login test cases");
 		usersList1 = dataTable.asLists();	
 		for(int i=1;i<usersList1.size();i++) {
 			User temp = new User(usersList1.get(i).get(0).toString(), usersList1.get(i).get(1)); 
@@ -95,10 +97,11 @@ public class loginSteps {
 		
 	}
 	
+	@Test
 	@Then("I should see password is incorrect")
 	public void iShouldSeePasswordIsIncorrect() {
 		if(case1) {
-			System.out.println("Case1: Password is incorrect");
+			logger.info("Case1: Password is incorrect");
 			assertTrue(case1);
 		}
 	}
@@ -115,10 +118,11 @@ public class loginSteps {
 		}
 	}
 	
+	@Test
 	@Then("I should see password and username are incorrect")
 	public void iShouldSeePasswordAndUsernameAreIncorrect() {
 		if(case2) {
-			System.out.println("Case2: Password and Username are incorrect");
+			logger.info("Case2: Password and Username are incorrect");
 			assertTrue(case2);
 		}
 		
@@ -136,10 +140,12 @@ public class loginSteps {
 			}
 		}
 	}
+	
+	@Test
 	@Then("I should see username is incorrect")
 	public void iShouldSeeUsernameIsIncorrect() {
 		if(case3) {
-			System.out.println("Case3: Username is incorrect");
+			logger.info("Case3: Username is incorrect");
 			assertTrue(case3);
 		}
 	}
@@ -155,10 +161,11 @@ public class loginSteps {
 		}
 	}
 
+	@Test
 	@Then("I should see this message Login successful for admin")
 	public void iShouldSeeThisMessageLoginSuccessfulForAdmin() {
 		if(case4) {
-			System.out.println("Case4: Login Successful welcome to Admins Home Page");
+			logger.info("Case4: Login Successful welcome to Admins Home Page");
 			assertTrue(case4);
 		}	
 	}
@@ -176,10 +183,11 @@ public class loginSteps {
 	}
 	
 	
+	@Test
 	@Then("I should see this message Login successful for customer")
 	public void iShouldSeeThisMessageLoginSuccessfulForCustomer() {
 		if(case5) {
-			System.out.println("Case4: Login Successful welcome to Customers Home Page");
+			logger.info("Case4: Login Successful welcome to Customers Home Page");
 			assertTrue(case5);
 		}
 	}
@@ -198,10 +206,11 @@ public class loginSteps {
 	}
 	
 	
+	@Test
 	@Then("I should see this message Login successful for employee")
 	public void iShouldSeeThisMessageLoginSuccessfulForEmployee() {
 		if(case6) {
-			System.out.println("Case4: Login Successful welcome to Employees Home Page");
+			logger.info("Case4: Login Successful welcome to Employees Home Page");
 			assertTrue(case6);
 		}
 	}

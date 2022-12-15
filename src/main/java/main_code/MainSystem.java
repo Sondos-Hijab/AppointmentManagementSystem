@@ -7,6 +7,7 @@ import java.util.List;
 
 public class MainSystem {
 
+	
 	List <Customer> customers = new ArrayList <Customer>();
 	List <Employee> employees = new ArrayList <Employee>();
 	List <Admin> admins = new ArrayList <Admin>();
@@ -27,9 +28,11 @@ public class MainSystem {
 	int currentDay = time.getDayOfMonth();
 	int currentYear = time.getYear();
 	//constructors
+	
+
 	public MainSystem() {
-		
-		}
+		super();
+	}
 
 
 	//getters and setters
@@ -43,8 +46,8 @@ public class MainSystem {
 		this.customers.add(c);
 	}
 	
-	public void addProvider (Providers P) {
-		this.providers.add(P);
+	public void addProvider (Providers p) {
+		this.providers.add(p);
 	}
 	
 	public void addVisit (Visit c) {

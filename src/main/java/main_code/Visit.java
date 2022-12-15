@@ -1,8 +1,11 @@
 
   package main_code;
-  
-  public class Visit { 
+
+import java.util.logging.Logger;
+
+public class Visit { 
 	  
+	private static final Logger logger = Logger.getLogger(Visit.class.getName());
 	private Appointment appointment; 
 	private String feedback;
   
@@ -20,7 +23,8 @@
   
 
 	public void printVisit() {
-		System.out.println("Visit feedback --> "+ this.feedback);
+		String s = "Visit feedback --> "+ this.feedback;
+		logger.info(s);
 		
 	}
 	

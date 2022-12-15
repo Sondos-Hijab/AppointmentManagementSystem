@@ -1,10 +1,8 @@
 package main_code;
 
-
-
 	public class Providers {
-		public String id;
-		public String provider;
+	    public String id;
+	    public String provider;
 		
 		public Providers() {
 			

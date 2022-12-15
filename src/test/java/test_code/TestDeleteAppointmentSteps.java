@@ -12,7 +12,7 @@ import main_code.Employee;
 import main_code.MainSystem;
 import main_code.Service;
 
-public class DeleteAppointmentSteps {
+public class TestDeleteAppointmentSteps {
 	 
 	boolean scenario1 = false, scenario2 = false;
 	MainSystem mainsystem = new MainSystem();
@@ -43,6 +43,7 @@ public class DeleteAppointmentSteps {
 		scenario1 = customer.deleteAppointment(enteredAppointmentId);
 	}
 
+	@Test
 	@Then("The system will give a message telling that the id is wrong")
 	public void theSystemWillGiveAMessageTellingThatTheIdIsWrong() {
 		assertTrue(!scenario1);
@@ -54,6 +55,8 @@ public class DeleteAppointmentSteps {
 		enteredAppointmentId = "1";
 		scenario2 = customer.deleteAppointment(enteredAppointmentId);
 	}
+	
+	@Test
 	@Then("The system will give a message telling that the appointment is deleted successfully")
 	public void theSystemWillGiveAMessageTellingThatTheAppointmentIsDeletedSuccessfully() {
 		assertTrue(scenario2);

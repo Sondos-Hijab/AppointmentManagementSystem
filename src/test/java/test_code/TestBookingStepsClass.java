@@ -2,6 +2,8 @@ package test_code;
 
 import static org.junit.Assert.*;
 
+import java.util.logging.Logger;
+
 import org.junit.Test;
 
 import io.cucumber.java.en.Then;
@@ -12,8 +14,9 @@ import main_code.Employee;
 import main_code.MainSystem;
 import main_code.Service;
 
-public class BookingStepsClass {
+public class TestBookingStepsClass {
 	
+	private static final Logger logger = Logger.getLogger(TestBookingStepsClass.class.getName());
 
 	 boolean scenario1= false,scenario2= false,scenario3= false, scenario4= false, 
 			scenario5= false, scenario6=false,scenario7=false, scenario8=false;
@@ -74,11 +77,12 @@ public class BookingStepsClass {
 	}
 	
 
+	@Test
 	@Then("I should see a message telling that the service number is wrong")
 	public void iShouldSeeAMessageTellingThatTheServiceNumberIsWrong() {
 		if(scenario1) {
 			assertTrue(scenario1);
-			System.out.println("Scenario1 --> Wrong Service Number --> tested successfully");
+			logger.info("Scenario1 --> Wrong Service Number --> tested successfully");
 		}
 	}
 
@@ -94,11 +98,12 @@ public class BookingStepsClass {
 	}
 	
 
+	@Test
 	@Then("I should see a message telling that the year number is wrong")
 	public void iShouldSeeAMessageTellingThatTheYearNumberIsWrong() {
 		if(scenario2) {
 		assertTrue(scenario2);
-		System.out.println("Scenario2 --> Wrong Year Number --> tested successfully");
+		logger.info("Scenario2 --> Wrong Year Number --> tested successfully");
 		}
 	}
 
@@ -115,11 +120,12 @@ public class BookingStepsClass {
 	}
 	
 
+	@Test
 	@Then("I should see a message telling that the month number is wrong")
 	public void iShouldSeeAMessageTellingThatTheMonthNumberIsWrong() {
 		if(scenario3) {
 		assertTrue(scenario3);
-		System.out.println("Scenario3 --> Wrong month Number --> tested successfully");
+		logger.info("Scenario3 --> Wrong month Number --> tested successfully");
 		}
 	}
 
@@ -139,11 +145,12 @@ public class BookingStepsClass {
 	}
 	
 
+	@Test
 	@Then("I should see a message telling that the day number is wrong")
 	public void iShouldSeeAMessageTellingThatTheDayNumberIsWrong() {
 		if(scenario4) {
 		assertTrue(scenario4);
-		System.out.println("Scenario4 --> Wrong day Number --> tested successfully");
+		logger.info("Scenario4 --> Wrong day Number --> tested successfully");
 		}
 	}
 
@@ -164,11 +171,12 @@ public class BookingStepsClass {
 	}
 	
 
+	@Test
 	@Then("I should see a message telling that the hour number is wrong")
 	public void iShouldSeeAMessageTellingThatTheHourNumberIsWrong() {
 		if(scenario5) {
 		assertTrue(scenario5);
-		System.out.println("Scenario5 --> Wrong hour Number --> tested successfully");
+		logger.info("Scenario5 --> Wrong hour Number --> tested successfully");
 		}
 	}
 
@@ -195,11 +203,12 @@ public class BookingStepsClass {
 	
 	}
 	
+	@Test
 	@Then("I should see a message telling that I have another appointment at the same time")
 	public void iShouldSeeAMessageTellingThatIHaveAnotherAppointmentAtTheSameTime() {
 		if(scenario6) {
 		assertTrue(scenario6);
-		System.out.println("Scenario6 --> The customer has appointment at the same time --> tested successfully");
+		logger.info("Scenario6 --> The customer has appointment at the same time --> tested successfully");
 		}
 	}
 
@@ -226,11 +235,12 @@ public class BookingStepsClass {
 		scenario7 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);		  
 	}
 	
+	@Test
 	@Then("I should see a message telling that there is a conflict")
 	public void iShouldSeeAMessageTellingThatThereIsAConflict() {
 		if(scenario7) {
 			assertTrue(scenario7);
-			System.out.println("Scenario7 --> There is a conflict --> tested successfully");
+			logger.info("Scenario7 --> There is a conflict --> tested successfully");
 			}
 	}
 
@@ -249,11 +259,12 @@ public class BookingStepsClass {
 		scenario8 = customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);		  
 	}
 	
+	@Test
 	@Then("I should see a message telling that the appointment is confirmed")
 	public void iShouldSeeAMessageTellingThatTheAppointmentIsConfirmed() {
 		if(scenario8) {
 			assertTrue(scenario8);
-			System.out.print("Scenario8 --> Appointment Booked Successfully --> tested successfully");
+			logger.info("Scenario8 --> Appointment Booked Successfully --> tested successfully");
 			}
 	}
 	@Then("The system will book the appointment and will appear in the admin's and employee's calendar")

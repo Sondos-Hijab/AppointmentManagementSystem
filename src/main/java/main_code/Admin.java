@@ -2,18 +2,23 @@ package main_code;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 
 
 public class Admin extends User{
-	List <Service> Services = new ArrayList <Service>();
+	List <Service> services = new ArrayList <Service>();
 	List <Story> stories = new ArrayList <Story>();
-
+	private static final Logger logger = Logger.getLogger(Admin.class.getName());
+	
+	
 	public Admin (String userId, String username, String password, String email){
 		super(userId, username, password, email);
 		
 	}
 	public Admin(String username, String password) {
 		super( username, password);
+		
 
 	}
 
@@ -32,11 +37,11 @@ public class Admin extends User{
 		
 	}
 	public List<Service> getServices() {
-		return Services;
+		return services;
 	}
 	
 	public void addService(Service serviceCase1) {
-		Services.add(serviceCase1);
+		services.add(serviceCase1);
 		
 	}
 	public List<Story> getStory() {
@@ -91,74 +96,79 @@ public class Admin extends User{
 		}		
 	}
 	public static boolean generateCustomersReport(MainSystem mainsystem) {
-		System.out.println("Customers' Report:");
+		logger.info("Customers' Report:");
 		for(int i=0;i<mainsystem.getCustomers().size();i++) {
 			Customer customer=  mainsystem.getCustomers().get(i);
-			System.out.println("Customer's id: "+ customer.getId()+" name: "+customer.getUsername() + " email: "+customer.getEmail()+ " phone number: "+customer.getPhoneNumber());
+			logger.info("Customer's id: "+ customer.getId()+" name: "+customer.getUsername() + " email: "+customer.getEmail()+ " phone number: "+customer.getPhoneNumber()+"\n");
 		}
-		System.out.println();
+		
 		return true;
 	}
 
 	public static boolean generateEmployeesReport(MainSystem mainsystem) {
-		System.out.println("Employees' Report:");
+		logger.info("Employees' Report:");
 		for(int i=0;i<mainsystem.getEmployees().size();i++) {
 			Employee employee=  mainsystem.getEmployees().get(i);
-			System.out.println("Employee's id: "+ employee.getId()+" name: "+employee.getUsername() + " email: "+employee.getEmail());
+			logger.info("Employee's id: "+ employee.getId()+" name: "+employee.getUsername() + " email: "+employee.getEmail()+"\n");
 		}
-		System.out.println();
+		
 		return true;
 	}
 
 	public static boolean generateAppointmentsReport(MainSystem mainsystem) {
-		System.out.println("Appointments' Report:");
+		logger.info("Appointments' Report:");
 		for(int i=0;i<mainsystem.getSystemAppointments().size();i++) {
 			Appointment appointment=  mainsystem.getSystemAppointments().get(i);
-			System.out.println("Appointment's id: "+ appointment.getId()+"customer's id: "+appointment.getCustomerId() + " year: "+appointment.getYear()
-			+ " month: "+appointment.getMonth() + " day: "+appointment.getDay() + " starting hour: "+appointment.getStartingHour() + " Service: "+appointment.getService().getServiceName());
+			logger.info("Appointment's id: "+ appointment.getId()+"customer's id: "+appointment.getCustomerId() + " year: "+appointment.getYear()
+			+ " month: "+appointment.getMonth() + " day: "+appointment.getDay() + " starting hour: "+appointment.getStartingHour() + " Service: "+appointment.getService().getServiceName() + "\n");
 		}
-		System.out.println();
+		
 		return true;
 	}
 
 	public static boolean generateVisitsReport(MainSystem mainsystem) {
-		System.out.println("Visits' Report:");
+		logger.info("Visits' Report:");
 		for(int i=0;i<mainsystem.getVisits().size();i++) {
 			Visit visit=  mainsystem.getVisits().get(i);
-			System.out.println("Visit's (appointment's) id: "+ visit.getAppointment().getId()+" Visit's Feedback id: "+visit.getFeedback());
+			logger.info("Visit's (appointment's) id: "+ visit.getAppointment().getId()+" Visit's Feedback id: "+visit.getFeedback()+"\n");
 		}
-		System.out.println();
+		
 		return true;
 	}
 	
 	public static boolean generateServicesReport(MainSystem mainsystem) {
-		System.out.println("Services' Report:");
+		logger.info("Services' Report:");
 		for(int i=0;i<mainsystem.getServices().size();i++) {
 			Service service=  mainsystem.getServices().get(i);
-			System.out.println("Service's id: "+ service.getServiceId()+" Service's title: "+service.getServiceName()
-			+" Service's time: "+service.getTime() +" Service's price: "+service.getPrice());
+			logger.info("Service's id: "+ service.getServiceId()+" Service's title: "+service.getServiceName()
+			+" Service's time: "+service.getTime() +" Service's price: "+service.getPrice()+"\n");
 		}
-		System.out.println();
+		
 		return true;
 	}
 
 	public static boolean generateGeneralReport(MainSystem mainsystem) {
-		System.out.println("General Report:");
-		System.out.println("Customers' Total Number : " + mainsystem.getCustomers().size());
-		System.out.println("Employees' Total Number : " + mainsystem.getEmployees().size());
-		System.out.println("Appointments' Total Number : " + mainsystem.getSystemAppointments().size());
-		System.out.println("Visits' Total Number : " + mainsystem.getVisits().size());
-		System.out.println("Services' Total Number : " + mainsystem.getServices().size());
+		logger.info("General Report:");
+		String s1 = "Customers' Total Number : " + mainsystem.getCustomers().size();
+		logger.info(s1);
+		String s2 = "Employees' Total Number : " + mainsystem.getEmployees().size();
+		logger.info(s2);
+		String s3 = "Appointments' Total Number : " + mainsystem.getSystemAppointments().size();
+		logger.info(s3);
+		String s4 = "Visits' Total Number : " + mainsystem.getVisits().size();
+		logger.info(s4);
+		String s5 = "Services' Total Number : " + mainsystem.getServices().size();
+		logger.info(s5);
 		
-		System.out.println("\n\n\n");
+		
 		return true;
 	}
 	
-	public boolean addProvider(String ProviderId ,MainSystem main ) {
+	public boolean addProvider(String providerId ,MainSystem main ) {
 		
 		for(int i=0;i<main.getProvider().size();i++) 
 		{
-			if(main.getProvider().get(i).getProviderId().equals(ProviderId)) {
+			if(main.getProvider().get(i).getProviderId().equals(providerId)) {
 				return true;
 			}
 		}
@@ -167,7 +177,7 @@ public class Admin extends User{
 	}
 
 
-	public static boolean DeleteCustomer(String id, MainSystem main){
+	public static boolean deleteCustomer(String id, MainSystem main){
 	    {
 		 for(int i=0;i<main.getCustomers().size();i++) {
 				if(main.getCustomers().get(i).getId().equals(id) ) {

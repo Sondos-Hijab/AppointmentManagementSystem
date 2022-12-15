@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
@@ -11,8 +12,10 @@ import io.cucumber.java.en.*;
 import main_code.Customer;
 import main_code.MainSystem;
 
-public class RegisterTest {
+public class TestRegisterTest {
 	
+	private static final Logger logger = Logger.getLogger(TestRegisterTest.class.getName());
+
 
 static int emailF=0;
 static int passF=0;
@@ -38,18 +41,19 @@ List <Customer> customers = new ArrayList <Customer>();
 		String username1="saba";
 		
 		main.addCustomer(customer1);
-	 if(  customer.UsernameIsUsed(username1, main)) {
+	 if(  customer.usernameIsUsed(username1, main)) {
 		 usernameF=1;
 	 }
 	
 	}
 
+	@Test
 	@Then("the customer should see the username is already used")
 	public void theCustomerShouldSeeTheUserNameIsAlreadyUsed() {
 		
 		if(usernameF==1) {
 			assertEquals( 1 , usernameF);
-			System.out.println("username is already used");
+			logger.info("username is already used");
 		}
 		
 	}
@@ -59,17 +63,18 @@ List <Customer> customers = new ArrayList <Customer>();
 	public void customerEntersUsedEmail() {
 		main.addCustomer(customer1);
 		String email="saba2007@gmail.com";
-		 if( customer.isValidEmail(email)&&customer.EmailIsUsed(email, main)) {
+		 if( customer.isValidEmail(email)&&customer.emailIsUsed(email, main)) {
 			emailF=1;
 		 }
 	
 	}
 	
+	@Test
 	@Then("the customer should see the user e is already used")
 	public void theCustomerShouldSeeTheUserEIsAlreadyUsed() {
 		if(emailF==1) {
 			assertEquals(1,emailF);
-			System.out.println("email is already used");
+			logger.info("email is already used");
 		}
 	}
 
@@ -84,11 +89,12 @@ List <Customer> customers = new ArrayList <Customer>();
 	    
 	}
 	
+	@Test
 	@Then("the customer should see wrong email syntax")
 	public void theCustomerShouldSeeWrongEmailSyntax() {
 		if(emailF==1) {
 			assertEquals(1,emailF);
-			System.out.println("Wrong email syntax");
+			logger.info("Wrong email syntax");
 		}
 	}
 
@@ -102,11 +108,12 @@ List <Customer> customers = new ArrayList <Customer>();
 		 }
 	}
 	
+	@Test
 	@Then("the customer should see weak password")
 	public void theCustomerShouldSeeWeakPassword() {
 		if(passF==1) {
 			assertEquals(1,passF);
-			System.out.println("Weak password");
+			logger.info("Weak password");
 		}
 	}
 
@@ -120,8 +127,8 @@ List <Customer> customers = new ArrayList <Customer>();
 		String validEmail="sama2001@gmail.com";
 		long number=598667006;
 		String id="2";
-		if(customer.isValidPassword(validPass)&& customer.isValidEmail(validEmail)&&!customer.UsernameIsUsed(validUsername, main)
-				&& !customer.EmailIsUsed(validEmail, main))
+		if(customer.isValidPassword(validPass)&& customer.isValidEmail(validEmail)&&!customer.usernameIsUsed(validUsername, main)
+				&& !customer.emailIsUsed(validEmail, main))
 		{
 			customer.setEmail(validEmail);
 			customer.setId(id);
@@ -139,13 +146,14 @@ List <Customer> customers = new ArrayList <Customer>();
 	 
 	}
 
+	@Test
 	@Then("the customer account is created")
 	public void theCustomerAccountIsCreated() {
   if(passF==0 && emailF==0 && usernameF==0) {
 	  
 	  boolean flag = (passF==0 && emailF==0 && usernameF==0);
 	  assertTrue(flag);
-	  System.out.println("Welcome to your account");
+	  logger.info("Welcome to your account");
   }
 	}
 

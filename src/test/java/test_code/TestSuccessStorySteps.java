@@ -2,6 +2,8 @@ package test_code;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Logger;
+
 import org.junit.Test;
 
 import io.cucumber.java.en.Given;
@@ -10,7 +12,8 @@ import io.cucumber.java.en.When;
 import main_code.Admin;
 import main_code.Story;
 
-public class successStorySteps {
+public class TestSuccessStorySteps {
+	private static final Logger logger = Logger.getLogger(TestSuccessStorySteps.class.getName());
 	Admin admin; 
 	Story myStory;
 	static boolean case1=false;
@@ -18,7 +21,7 @@ public class successStorySteps {
 
 	@Given("I am an admin")
 	public void iAmAnAdmin() {
-		System.out.println("Success Story test case");
+		logger.info("Success Story test case");
 		admin = new Admin("1", "leen", "12345678", "leen.ahmad@gmail.com");
 
 	}
@@ -30,18 +33,19 @@ public class successStorySteps {
 				+ "happier with their lives, and this is the biggest success story for us");
 		admin.addStory(myStory);
 		case1 = true;
-		System.out.println(admin.getStory().get(0).getStory());
+		logger.info(admin.getStory().get(0).getStory());
 
 		
 
 	}
 	
+	@Test
 	@Then("I should see successfully adding Success Stories")
 	public void iShouldSeeSuccessfullyAddingSuccessStories() {
 		if(case1)
 		{
 			assertTrue(case1);
-			System.out.println("Case1: successfully adding Success Stories");
+			logger.info("Case1: successfully adding Success Stories");
 		}
 
 	}

@@ -1,6 +1,7 @@
 package main_code;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import main_code.Customer;
@@ -8,7 +9,7 @@ import main_code.Customer;
 
 public class Customer extends User {
 	private long phoneNumber;
-
+	private static final Logger logger = Logger.getLogger(Customer.class.getName());
 
 
 
@@ -57,19 +58,20 @@ public class Customer extends User {
 	 //generating invoice
 
 	public boolean generateAnInvoice() {
-		if(this.getAppointments().size() == 0) {
-			System.out.println("You don't have any appointments yet, "
+		if(this.getAppointments().isEmpty()) {
+			logger.info("You don't have any appointments yet, "
 					+ "add an appointment first and then ask to generate the invoice");
 			return false;
 		}
 		else {
 			int totalPrice = 0;
 			for(int i=0;i<this.getAppointments().size();i++) {
-				System.out.println("Appointment Id: " + this.getAppointments().get(i).getId()
+				logger.info("Appointment Id: " + this.getAppointments().get(i).getId()
 						+ " Price: "+this.getAppointments().get(i).getService().getPrice());
 				totalPrice += this.getAppointments().get(i).getService().getPrice();
 			}
-			System.out.println("Total Price: "+ totalPrice);
+			String s1 = "Total Price: "+ totalPrice;
+			logger.info(s1);
 			return true;
 		}
 		
@@ -103,6 +105,30 @@ public class Customer extends User {
 		else return true;
 	}
 
+	
+	
+	public boolean miniHelper (MainSystem mainsystem, int month,int dayNumber, int endday) {
+		if(dayNumber <= mainsystem.currentDay) return true;
+		else {
+			for(int i =mainsystem.currentDay+1;i<=endday;i++) {
+				if(i == month)
+					return false;
+			}
+			return true;
+		}
+	}
+	public boolean helper (MainSystem mainsystem, int year, int month,int dayNumber, int endday) {
+		if(mainsystem.currentYear == year && mainsystem.currentMonth == month) {
+			return miniHelper(mainsystem,   month, dayNumber, endday);
+		}
+		else {
+			for(int i =1;i<=endday;i++) {
+				if(i == month)
+					return false;
+			}
+			return true;
+		}
+	}
 	public boolean checkIfTheEnteredDayNumberIsWrong(MainSystem mainsystem, int year, int month,int dayNumber) {
 		int endday = 0;
 		if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
@@ -113,24 +139,8 @@ public class Customer extends User {
 			endday = 30;
 		}
 		
+		return helper( mainsystem,  year,  month, dayNumber, endday);
 		
-		if(mainsystem.currentYear == year && mainsystem.currentMonth == month) {
-			if(dayNumber <= mainsystem.currentDay) return true;
-			else {
-				for(int i =mainsystem.currentDay+1;i<=endday;i++) {
-					if(i == month)
-						return false;
-				}
-				return true;
-			}
-		}
-		else {
-			for(int i =1;i<=endday;i++) {
-				if(i == month)
-					return false;
-			}
-			return true;
-		}
 	}
 	
 	private boolean checkIfTheEnteredHourNumberIsWrong(MainSystem mainsystem, Service chosenService, int chosenHour) {
@@ -178,7 +188,7 @@ public class Customer extends User {
 		boolean chosenServiceNumberIsWrong = checkIfTheEnteredServiceNumberIsWrong(mainsystem,chosenServiceString);
 		
 		if(chosenServiceNumberIsWrong) {
-			System.out.println("Chosen Service Number Is Wrong");
+			logger.info("Chosen Service Number Is Wrong");
 			return false;
 		}
 		
@@ -191,21 +201,21 @@ public class Customer extends User {
         boolean chosenYearNumberIsWrong = checkIfTheEnteredYearNumberIsWrong(chosenYear,mainsystem);
 		
 		if(chosenYearNumberIsWrong) {
-			System.out.println("Chosen Year Number Is Wrong");
+			logger.info("Chosen Year Number Is Wrong");
 			return false;
 		}
 		
 		boolean chosenMonthNumberIsWrong = checkIfTheEnteredMonthNumberIsWrong(mainsystem,chosenYear,chosenMonth);
 		
 		if(chosenMonthNumberIsWrong) {
-			System.out.println("Chosen Month Number Is Wrong");
+			logger.info("Chosen Month Number Is Wrong");
 			return false;
 		}
 		
         boolean chosenDayNumberIsWrong = checkIfTheEnteredDayNumberIsWrong(mainsystem,chosenYear,chosenMonth,chosenDay);
 		
 		if(chosenDayNumberIsWrong) {
-			System.out.println("Chosen Day Number Is Wrong");
+			logger.info("Chosen Day Number Is Wrong");
 			return false;
 		}
 		
@@ -213,7 +223,7 @@ public class Customer extends User {
         boolean chosenHourNumberIsWrong = checkIfTheEnteredHourNumberIsWrong(mainsystem,chosenService,chosenHour);
 		
 		if(chosenHourNumberIsWrong) {
-			System.out.println("Chosen Hour Number Is Wrong");
+			logger.info("Chosen Hour Number Is Wrong");
 			return false;
 		}
 		
@@ -229,13 +239,13 @@ public class Customer extends User {
 		boolean customerHasAnAppointmentAtTheSameTime = checkIfTheCustomerHasAnAppointmentAtTheSameTime(this,appointment);
 		
 		if (customerHasAnAppointmentAtTheSameTime) {
-			System.out.println("Customer has an appointemtnat at the same time");
+			logger.info("Customer has an appointemtnat at the same time");
 			return false;
 		}
 		
 		boolean thereIsAConflict = checkIfThereIsAConflict(mainsystem, appointment);
 		if(thereIsAConflict) {
-			System.out.println("There is a conflict");
+			logger.info("There is a conflict");
 			return false;
 		}
 		
@@ -251,11 +261,11 @@ public class Customer extends User {
 		for(int i=0;i<this.getAppointments().size();i++) {
 			if(this.getAppointments().get(i).getId().equals(enteredAppointmentId)) {
 				this.getAppointments().remove(this.getAppointments().get(i));
-				System.out.println("Deleted Successfully!\n");
+				logger.info("Deleted Successfully!\n");
 				return true;
 			}
 		}
-		System.out.println("Can't delete, it's either wrong appointment id or you don't have appointments at all!");
+		logger.info("Can't delete, it's either wrong appointment id or you don't have appointments at all!");
 		
 		return false;
 		
@@ -265,7 +275,10 @@ public class Customer extends User {
 
 
 	public boolean editAppointment(String appointmentId, int startingHour, int year, int month, int day, MainSystem mainsystem) {
-		boolean yearFlag = true, monthFlag = true, dayFlag = true, hourFlag = true;
+		boolean yearFlag = true;
+		boolean monthFlag = true;
+		boolean dayFlag = true;
+		boolean hourFlag = true;
 
 		for(int i=0;i<this.getAppointments().size();i++) {
 
@@ -299,7 +312,7 @@ public class Customer extends User {
 					appointment.setMonth(month);
 					appointment.setDay(day);
 					appointment.setStartingHour(startingHour);
-					System.out.println("edited Successfully!\n");
+					logger.info("edited Successfully!\n");
 					return true;
 				}
 			}
@@ -312,16 +325,16 @@ public class Customer extends User {
 		}
 		
 		if(!yearFlag) {
-			System.out.println("Wrong year number!");
+			logger.info("Wrong year number!");
 		}
 		if(!monthFlag) {
-			System.out.println("Wrong month number!");
+			logger.info("Wrong month number!");
 		}
 		if(!dayFlag) {
-			System.out.println("Wrong day number!");
+			logger.info("Wrong day number!");
 		}
 		if(!hourFlag) {
-			System.out.println("Wrong starting hour number!");
+			logger.info("Wrong starting hour number!");
 		}
 		
 		if(!yearFlag || !monthFlag || !dayFlag || !hourFlag) {
@@ -329,7 +342,7 @@ public class Customer extends User {
 		}
 
 		else {
-			System.out.println("Wrong appointment id! can't edit");
+			logger.info("Wrong appointment id! can't edit");
 			return false;
 		}
 		
@@ -346,21 +359,21 @@ public class Customer extends User {
 	 public static boolean isValidPassword(String password)
 	    {
 	      int digitsCount=0;
-	      String Inputpassword= password;;
-	      int Passlength=Inputpassword.length();
-	      for(int i=0 ; i< Passlength ; i++) {
-	    	  char c= Inputpassword.charAt(i);
+	      String inputPassword= password;
+	      int passLength=inputPassword.length();
+	      for(int i=0 ; i< passLength ; i++) {
+	    	  char c= inputPassword.charAt(i);
 	    	  if (Character.isDigit(c))
 	    		  digitsCount++;
 	      }
-	      if (digitsCount>0 && Passlength >=8) 
+	      if (digitsCount>0 && passLength >=8) 
 	    	  return true;
 	      else
 		   return false;
 	      
 	    }
 	 
-	 public static boolean UsernameIsUsed(String username,MainSystem main){
+	 public static boolean usernameIsUsed(String username,MainSystem main){
 	    {
 		 for(int i=0;i<main.getCustomers().size();i++) {
 				if(main.getCustomers().get(i).getUsername().equals(username)) {
@@ -373,7 +386,7 @@ public class Customer extends User {
 	      
 	    }
 	 
-	 public static boolean EmailIsUsed(String email,MainSystem main){
+	 public static boolean emailIsUsed(String email,MainSystem main){
 		    {
 			 for(int i=0;i<main.getCustomers().size();i++) {
 					if(main.getCustomers().get(i).getEmail().equals(email)) {
@@ -388,7 +401,7 @@ public class Customer extends User {
 	 
 
 
-	public static boolean ValidPassword(String pass, MainSystem main) {
+	public static boolean validPassword(String pass, MainSystem main) {
 		for(int i=0;i<main.getCustomers().size();i++) {
 			if(main.getCustomers().get(i).getPassword().equals(pass) ) {
 				

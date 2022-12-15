@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
@@ -13,7 +14,8 @@ import io.cucumber.java.en.When;
 import main_code.Admin;
 import main_code.Service;
 
-public class editOrDeleteService {
+public class TestEditOrDeleteService {
+	private static final Logger logger = Logger.getLogger(TestEditOrDeleteService.class.getName());
 
 	static List<Service> listOfServices = new ArrayList<Service>();
 	static List<List<String>> servicesList;
@@ -35,7 +37,7 @@ public class editOrDeleteService {
 
 	@Given("The data table for existing Services")
 	public void theDataTableForExistingServices(io.cucumber.datatable.DataTable dataTable) {
-		System.out.println("Deleting or Editing Service test cases");
+		logger.info("Deleting or Editing Service test cases");
 		servicesList = dataTable.asLists();
 		for (int i = 1; i < servicesList.size(); i++) {
 			Service temp = new Service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
@@ -54,10 +56,11 @@ public class editOrDeleteService {
 		}
 	}
 
+	@Test
 	@Then("I should see this message the number for the service Id is incorrect")
 	public void iShouldSeeThisMessageTheNumberForTheServiceIdIsIncorrect() {
 		if (case1) {
-			System.out.println("Case1: The number for the Service Id is incorrect");
+			logger.info("Case1: The number for the Service Id is incorrect");
 			assertTrue(true);
 		}
 	}
@@ -90,18 +93,20 @@ public class editOrDeleteService {
 
 	}
 
+	@Test
 	@Then("I should see successful deleting")
 	public void iShouldSeeSuccessfulDeleting() {
 		if (case2) {
-			System.out.println("Case2: Successful deleting");
+			logger.info("Case2: Successful deleting");
 			assertTrue(true);
 		}
 	}
 
+	@Test
 	@Then("I should see successful editing")
 	public void iShouldSeeSuccessfulEditing() {
 		if (case3) {
-			System.out.println("Case3: Successful editing");
+			logger.info("Case3: Successful editing");
 			assertTrue(true);
 		}
 	}

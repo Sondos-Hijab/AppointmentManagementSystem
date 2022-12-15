@@ -11,7 +11,7 @@ import main_code.Appointment;
 import main_code.Customer;
 import main_code.Service;
 
-public class GeneratingInvoiceSteps {
+public class TestGeneratingInvoiceSteps {
 
 
 	Customer customer = new Customer ("1", "aseel", "aseel1234","aseel@gmail.com",8563);
@@ -29,6 +29,7 @@ public class GeneratingInvoiceSteps {
 	    
 	}
 
+	@Test
 	@Then("The system will tell him\\/her that he\\/she should add an appointment first")
 	public void theSystemWillTellHimHerThatHeSheShouldAddAnAppointmentFirst() {
 	    assertTrue(!customer.generateAnInvoice());
@@ -63,10 +64,11 @@ public class GeneratingInvoiceSteps {
 	    
 	}
 	
+	@Test
 	@Then("the customer should see the generated invoice for the multiple appointment")
 	public void theCustomerShouldSeeTheGeneratedInvoiceForTheMultipleAppointment() {
 		 assertTrue(customer.generateAnInvoice());
-		 System.out.println("\n\n\n");
+
 	}
 
 

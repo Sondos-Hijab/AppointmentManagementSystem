@@ -2,16 +2,20 @@ package test_code;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
 import io.cucumber.java.en.*;
 import main_code.Admin;
+import main_code.Employee;
 import main_code.MainSystem;
 import main_code.Providers;
 
 import static org.junit.Assert.*;
-public class AddProviderTest {
+public class TestAddProviderTest {
+	
+	private static final Logger logger = Logger.getLogger(TestAddProviderTest.class.getName());
 	static int addF=0;
 	Providers provider=new Providers("1","sephora");
 	List <Providers> provider1 = new ArrayList <Providers>();
@@ -30,11 +34,12 @@ public class AddProviderTest {
 	}
 	
 
+	@Test
 	@Then("Admin should see wrong id")
 	public void adminShouldSeeWrongId() {
 	   if(addF==1) {
 		   assertEquals(1,addF);
-		   System.out.println(" Provider is already added");
+		  logger.info(" Provider is already added");
 	   }
 	}
 	
@@ -54,11 +59,12 @@ public class AddProviderTest {
 	}
 	
 
+	@Test
 	@Then("Admin should see Provider added successfully")
 	public void adminShouldSeeProviderAddedSuccessfully() {
 		if(addF==0) {
 			   assertEquals(0,addF);
-			   System.out.println(" Provider added successfully");
+			   logger.info(" Provider added successfully");
 		   }
 	}
 

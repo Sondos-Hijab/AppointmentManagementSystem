@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
@@ -14,7 +15,9 @@ import main_code.Admin;
 import main_code.Employee;
 import main_code.Service;
 
-public class serviceSteps {
+public class TestServiceSteps {
+	private static final Logger logger = Logger.getLogger(TestServiceSteps.class.getName());
+
 	static List<Service> listOfServices = new ArrayList<Service>();
 	static List<Employee> listOfEmployees = new ArrayList<Employee>();
 	static List<List<String>> servicesList;
@@ -42,7 +45,7 @@ public class serviceSteps {
 	@Given("the data table for existing services")
 	public void theDataTableForExistingServices(io.cucumber.datatable.DataTable dataTable) {
 
-		System.out.println("Adding Service test cases");
+		logger.info("Adding Service test cases");
 		servicesList = dataTable.asLists();
 		for (int i = 1; i < servicesList.size(); i++) {
 			Service temp = new Service(servicesList.get(i).get(0).toString(), servicesList.get(i).get(1).toString(),
@@ -61,10 +64,11 @@ public class serviceSteps {
 		}
 	}
 	
+	@Test
 	@Then("I should see each employee provides only one service")
 	public void iShouldSeeEachEmployeeProvidesOnlyOneService() {
 		if (case1) {
-			System.out.println("Case1: Each Employee provides only one Service");
+			logger.info("Case1: Each Employee provides only one Service");
 			assertTrue(true);
 		}
 	}
@@ -88,10 +92,11 @@ public class serviceSteps {
 		}
 	}
 	
+	@Test
 	@Then("I should see the number for the employee Id is incorrect")
 	public void iShouldSeeTheNumberForTheEmployeeIdIsIncorrect() {
 		if (case2) {
-			System.out.println("Case2: The number for the Employee Id is incorrect");
+			logger.info("Case2: The number for the Employee Id is incorrect");
 			assertTrue(true);
 		}
 	}
@@ -113,10 +118,11 @@ public class serviceSteps {
 
 	}
 	
+	@Test
 	@Then("I should see the service you are trying to add is already added")
 	public void iShouldSeeTheServiceYouAreTryingToAddIsAlreadyAdded() {
 		if (case3) {
-			System.out.println("Case3: The Service you are trying to add is already added");
+			logger.info("Case3: The Service you are trying to add is already added");
 			assertTrue(true);
 		}
 	}
@@ -141,10 +147,11 @@ public class serviceSteps {
 
 
 
+	@Test
 	@Then("I should see successful adding service")
 	public void iShouldSeeSuccessfulAddingService() {
 		if (case4) {
-			System.out.println("Case4: The Service is adding successfully");
+			logger.info("Case4: The Service is adding successfully");
 			assertTrue(true);
 		}
 	}
