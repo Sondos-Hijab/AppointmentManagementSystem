@@ -28,6 +28,8 @@ public class GeneratingInvoiceSteps {
 	public void customerAsksForGeneratingAnInvoiceAndHeSheDoesnTHaveAnyAppointmentsYet() {
 	    
 	}
+	
+	@Test
 	@Then("The system will tell him\\/her that he\\/she should add an appointment first")
 	public void theSystemWillTellHimHerThatHeSheShouldAddAnAppointmentFirst() {
 	    assertTrue(!customer.generateAnInvoice());
@@ -43,6 +45,8 @@ public class GeneratingInvoiceSteps {
 	public void theCustomerAsksToGenerateAnInvoiceForIt() {
 	   
 	}
+	
+	@Test
 	@Then("the customer should see the generated invoice for the appointment")
 	public void theCustomerShouldSeeTheGeneratedInvoiceForTheAppointment() {
 		 assertTrue(customer.generateAnInvoice());
@@ -60,6 +64,8 @@ public class GeneratingInvoiceSteps {
 	public void theCustomerAsksToGenerateAnInvoiceForThem() {
 	    
 	}
+	
+	@Test
 	@Then("the customer should see the generated invoice for the multiple appointment")
 	public void theCustomerShouldSeeTheGeneratedInvoiceForTheMultipleAppointment() {
 		 assertTrue(customer.generateAnInvoice());

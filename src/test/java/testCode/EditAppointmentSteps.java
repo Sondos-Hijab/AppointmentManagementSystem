@@ -47,6 +47,8 @@ public class EditAppointmentSteps {
 	public void customerEntersWrongAppointmentId() {
 		appointmentId = "2";	
 	}
+	
+	@Test
 	@Then("the appointment will not be edited and it will give a message telling the appointment number enetred is wrong")
 	public void theAppointmentWillNotBeEditedAndItWillGiveAMessageTellingTheAppointmentNumberEnetredIsWrong() {
 
@@ -60,6 +62,8 @@ public class EditAppointmentSteps {
 		year = 2026;
 		appointmentId = "1";
 	}
+	
+	@Test
 	@Then("the appointment will not be edited and it will give a message telling the year number enetred is wrong")
 	public void theAppointmentWillNotBeEditedAndItWillGiveAMessageTellingTheYearNumberEnetredIsWrong() {
 		scenario2 = !customer.editAppointment(appointmentId,12, year, 11, 4, mainsystem);
@@ -72,6 +76,8 @@ public class EditAppointmentSteps {
 		month = 13;
 		appointmentId = "1";
 	}
+	
+	@Test
 	@Then("the appointment will not be edited and it will give a message telling the month number enetred is wrong")
 	public void theAppointmentWillNotBeEditedAndItWillGiveAMessageTellingTheMonthNumberEnetredIsWrong() {
 		scenario3 = !customer.editAppointment(appointmentId,12, 2023, month, 4, mainsystem);
@@ -84,6 +90,8 @@ public class EditAppointmentSteps {
 		day = 13;
 		appointmentId = "1";
 	}
+	
+	@Test
 	@Then("the appointment will not be edited and it will give a message telling the day number enetred is wrong")
 	public void theAppointmentWillNotBeEditedAndItWillGiveAMessageTellingTheDayNumberEnetredIsWrong() {
 		scenario4 = !customer.editAppointment(appointmentId,12, 2022, 10, day, mainsystem);
@@ -96,6 +104,8 @@ public class EditAppointmentSteps {
 		startHour = 20;
 		appointmentId = "1";
 	}
+	
+	@Test
 	@Then("the appointment will not be edited and it will give a message telling the staring hour number enetred is wrong")
 	public void theAppointmentWillNotBeEditedAndItWillGiveAMessageTellingTheStaringHourNumberEnetredIsWrong() {
 		scenario5 = !customer.editAppointment(appointmentId,startHour, 2023, 10, 4, mainsystem);
@@ -107,6 +117,8 @@ public class EditAppointmentSteps {
 		pre();
 		appointmentId = "1";
 	}
+	
+	@Test
 	@Then("the appointment will be edited and it will give a message telling the appointment is edited successfully")
 	public void theAppointmentWillBeEditedAndItWillGiveAMessageTellingTheAppointmentIsEditedSuccessfully() {
 		scenario6 = customer.editAppointment(appointmentId,14, 2023, 12, 4, mainsystem);

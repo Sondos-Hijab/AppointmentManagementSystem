@@ -3,12 +3,6 @@ package mainCode;
 import java.util.ArrayList;
 import java.util.List;
 
-import mainCode.Appointment;
-import mainCode.Customer;
-import mainCode.Employee;
-import mainCode.MainSystem;
-import mainCode.Service;
-import mainCode.Visit;
 
 public class Admin extends User{
 	List <Service> Services = new ArrayList <Service>();

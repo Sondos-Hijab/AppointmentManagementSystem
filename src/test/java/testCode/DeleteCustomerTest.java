@@ -1,9 +1,12 @@
 package testCode;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Test;
 
 import io.cucumber.java.en.*;
 import mainCode.*;
@@ -25,15 +28,18 @@ public class DeleteCustomerTest {
 		   deleteF=1;
 	   }
 	}
+	
+	@Test
 	@Then("i should see the id doesn't exisit")
 	public void iShouldSeeTheIdDoesnTExisit() {
 	    if(deleteF==1) {
-	    	assertTrue(deleteF==1);
+	    	assertEquals(1,deleteF);
 	    	System.out.println("the id doesn't exist");
 	    }
 	}
 
 
+	
 	@When("i type valid id")
 	public void iTypeValidId() {
 		main.addCustomer(customer);
@@ -45,10 +51,12 @@ public class DeleteCustomerTest {
 			   deleteF=0;
 		   }
 	}
+	
+	@Test
 	@Then("deleted successfully")
 	public void deletedSuccessfully() {
 		if(deleteF==0) {
-	    	assertTrue(deleteF==0);
+			assertEquals(0,deleteF);
 	    	System.out.println("deleted successfully");
 	    }
 	}

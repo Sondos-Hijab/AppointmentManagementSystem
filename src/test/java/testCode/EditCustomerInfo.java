@@ -1,9 +1,11 @@
 package testCode;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Test;
 
 import io.cucumber.java.en.*;
 import mainCode.*;
@@ -30,10 +32,12 @@ List <Customer> customers = new ArrayList <Customer>();
 		   passF=1;
 	   }
 	}
+	
+	@Test
 	@Then("the customer should see incorrect password")
 	public void theCustomerShouldSeeIncorrectPassword() {
 	  if(passF==1) {
-		  assertTrue(passF==1);
+		  assertEquals(1, passF);
 		  System.out.println("wrong password");
 	  }
 	}
@@ -52,10 +56,12 @@ List <Customer> customers = new ArrayList <Customer>();
 			   passF=0;
 		   }
 	}
+	
+	@Test
 	@Then("the customer should see the email has been edited")
 	public void theCustomerShouldSeeTheEmailHasBeenEdited() {
 		  if(passF==0) {
-			  assertTrue(passF==0);
+			  assertEquals(0,passF);
 			  System.out.println("the email has been edited");
 		  }
 	}
@@ -74,10 +80,12 @@ List <Customer> customers = new ArrayList <Customer>();
 			   passF=0;
 		   }
 	}
+	
+	@Test
 	@Then("the customer should see the password has been edited")
 	public void theCustomerShouldSeeThePasswordHasBeenEdited() {
 		 if(passF==0) {
-			  assertTrue(passF==0);
+			 assertEquals(0,passF);
 			  System.out.println("the Password has been edited");
 		  }
 	}
@@ -97,10 +105,12 @@ List <Customer> customers = new ArrayList <Customer>();
 			   passF=0;
 	}
 	}
+	
+	@Test
 	@Then("the customer should see the phone number has been edited")
 	public void theCustomerShouldSeeThePhoneNumberHasBeenEdited() {
 		 if(passF==0) {
-			  assertTrue(passF==0);
+			 assertEquals(0,passF);
 			  System.out.println("the phone number has been edited");
 		  
 	}

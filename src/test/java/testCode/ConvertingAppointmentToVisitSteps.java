@@ -59,6 +59,8 @@ public class ConvertingAppointmentToVisitSteps {
 		feedback = "The services you provide are good!";
 		
 	}
+	
+	@Test
 	@Then("The employee should see username is not found")
 	public void theEmployeeShouldSeeUsernameIsNotFound() {
 		System.out.println("\n \n \n");
@@ -78,6 +80,8 @@ public class ConvertingAppointmentToVisitSteps {
 		appointmentId = "2";
 		feedback = "The services you provide are good!";
 	}
+	
+	@Test
 	@Then("the employee should see appointment id is wrong")
 	public void theEmployeeShouldSeeAppointmentIdIsWrong() {
 		System.out.println("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
@@ -101,6 +105,8 @@ public class ConvertingAppointmentToVisitSteps {
 	public void theAppointmentDateIsnTToday() {
 		
 	}
+	
+	@Test
 	@Then("the employee should see can't convert it to a visit because it should be today")
 	public void theEmployeeShouldSeeCanTConvertItToAVisitBecauseItShouldBeToday() {
 		assertTrue(!employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
@@ -116,12 +122,15 @@ public class ConvertingAppointmentToVisitSteps {
 		appointmentId = "1";
 		feedback = "The services you provide are good!";
 	}
+	
+	@Test
 	@Then("A visit for the appointment will be added to the customer visits record and to the system visits record")
 	public void aVisitForTheAppointmentWillBeAddedToTheCustomerVisitsRecordAndToTheSystemVisitsRecord() {
 		System.out.println("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
 		assertTrue(employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
 		System.out.println("Test Case 4 : A visit for the appointment will be added to the customer visits record and to the system visits record");
 	}
+	
 	@Then("The employee should see Converting appointment to a visit went successfully")
 	public void theEmployeeShouldSeeConvertingAppointmentToAVisitWentSuccessfully() {
 		System.out.println("Converting appointment to a visit went successfully");

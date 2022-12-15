@@ -2,15 +2,10 @@ package testCode;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Admin;
 import mainCode.Appointment;
 import mainCode.Customer;
 import mainCode.Employee;
@@ -77,6 +72,8 @@ public class BookingStepsClass {
 		chosenServiceNumber = 6;
 		scenario1 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);
 	}
+	
+	@Test
 	@Then("I should see a message telling that the service number is wrong")
 	public void iShouldSeeAMessageTellingThatTheServiceNumberIsWrong() {
 		if(scenario1) {
@@ -95,6 +92,8 @@ public class BookingStepsClass {
 		chosenYear = 2021;
 		scenario2 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);
 	}
+	
+	@Test
 	@Then("I should see a message telling that the year number is wrong")
 	public void iShouldSeeAMessageTellingThatTheYearNumberIsWrong() {
 		if(scenario2) {
@@ -114,6 +113,8 @@ public class BookingStepsClass {
 		chosenMonth = 8;
 		scenario3 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);
 	}
+	
+	@Test
 	@Then("I should see a message telling that the month number is wrong")
 	public void iShouldSeeAMessageTellingThatTheMonthNumberIsWrong() {
 		if(scenario3) {
@@ -136,6 +137,8 @@ public class BookingStepsClass {
 		scenario4 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);
 
 	}
+	
+	@Test
 	@Then("I should see a message telling that the day number is wrong")
 	public void iShouldSeeAMessageTellingThatTheDayNumberIsWrong() {
 		if(scenario4) {
@@ -159,6 +162,8 @@ public class BookingStepsClass {
 		scenario5 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);
 
 	}
+	
+	@Test
 	@Then("I should see a message telling that the hour number is wrong")
 	public void iShouldSeeAMessageTellingThatTheHourNumberIsWrong() {
 		if(scenario5) {
@@ -189,6 +194,8 @@ public class BookingStepsClass {
 		scenario6 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);
 	
 	}
+	
+	@Test
 	@Then("I should see a message telling that I have another appointment at the same time")
 	public void iShouldSeeAMessageTellingThatIHaveAnotherAppointmentAtTheSameTime() {
 		if(scenario6) {
@@ -219,6 +226,8 @@ public class BookingStepsClass {
 		
 		scenario7 = !customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);		  
 	}
+	
+	@Test
 	@Then("I should see a message telling that there is a conflict")
 	public void iShouldSeeAMessageTellingThatThereIsAConflict() {
 		if(scenario7) {
@@ -241,6 +250,8 @@ public class BookingStepsClass {
 		chosenHour = 12;
 		scenario8 = customer.bookAppointment(mainsystem,chosenServiceNumber,chosenYear,chosenMonth,chosenDay,chosenHour);		  
 	}
+	
+	@Test
 	@Then("I should see a message telling that the appointment is confirmed")
 	public void iShouldSeeAMessageTellingThatTheAppointmentIsConfirmed() {
 		if(scenario8) {

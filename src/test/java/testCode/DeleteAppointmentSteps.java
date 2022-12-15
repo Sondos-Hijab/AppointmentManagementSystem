@@ -42,6 +42,7 @@ public class DeleteAppointmentSteps {
 		enteredAppointmentId = "2";
 		scenario1 = customer.deleteAppointment(enteredAppointmentId);
 	}
+	@Test
 	@Then("The system will give a message telling that the id is wrong")
 	public void theSystemWillGiveAMessageTellingThatTheIdIsWrong() {
 		assertTrue(!scenario1);
@@ -53,6 +54,7 @@ public class DeleteAppointmentSteps {
 		enteredAppointmentId = "1";
 		scenario2 = customer.deleteAppointment(enteredAppointmentId);
 	}
+	@Test
 	@Then("The system will give a message telling that the appointment is deleted successfully")
 	public void theSystemWillGiveAMessageTellingThatTheAppointmentIsDeletedSuccessfully() {
 		assertTrue(scenario2);

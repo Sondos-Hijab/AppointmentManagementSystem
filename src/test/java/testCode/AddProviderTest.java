@@ -2,6 +2,9 @@ package testCode;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Test;
+
 import io.cucumber.java.en.*;
 import mainCode.Providers;
 import static org.junit.Assert.*;
@@ -24,10 +27,12 @@ public class AddProviderTest {
 		 addF=1;
 	 }
 	}
+	
+	@Test
 	@Then("Admin should see wrong id")
 	public void adminShouldSeeWrongId() {
 	   if(addF==1) {
-		   assertTrue(addF==1);
+		   assertEquals(1,addF);
 		   System.out.println(" Provider is already added");
 	   }
 	}
@@ -46,10 +51,12 @@ public class AddProviderTest {
 		
 		
 	}
+	
+	@Test
 	@Then("Admin should see Provider added successfully")
 	public void adminShouldSeeProviderAddedSuccessfully() {
 		if(addF==0) {
-			   assertTrue(addF==0);
+			   assertEquals(0,addF);
 			   System.out.println(" Provider added successfully");
 		   }
 	}

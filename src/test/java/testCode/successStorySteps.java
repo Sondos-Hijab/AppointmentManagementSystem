@@ -2,6 +2,8 @@ package testCode;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -33,6 +35,8 @@ public class successStorySteps {
 		
 
 	}
+	
+	@Test
 	@Then("I should see successfully adding Success Stories")
 	public void iShouldSeeSuccessfullyAddingSuccessStories() {
 		if(case1)

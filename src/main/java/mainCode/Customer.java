@@ -1,17 +1,9 @@
 package mainCode;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.regex.Pattern;
-import java.util.ArrayList;
-import java.util.List;
-
-import mainCode.Appointment;
 import mainCode.Customer;
-import mainCode.MainSystem;
-import mainCode.Service;
-import mainCode.Visit;
+
 
 public class Customer extends User {
 	private long phoneNumber;
@@ -344,13 +336,9 @@ public class Customer extends User {
 
 	 public static boolean isValidEmail(String email)
 	    {
-		 	String emailRegex1 = "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	        String emailRegex2 = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@";
-	        String emailRegex = "" + emailRegex2 + emailRegex1;
-
+		    String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
 	                              
 	        Pattern pat = Pattern.compile(emailRegex);
-	       
 	        return pat.matcher(email).matches();
 	    }
 	 

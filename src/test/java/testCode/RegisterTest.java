@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
+
 import io.cucumber.java.en.*;
 import mainCode.Customer;
 import mainCode.MainSystem;
@@ -30,6 +32,7 @@ List <Customer> customers = new ArrayList <Customer>();
 	  
 	}
 
+	
 	@When("customer enters used  username")
 	public void customerEntersUsedUsername() {
 		String username1="saba";
@@ -40,13 +43,15 @@ List <Customer> customers = new ArrayList <Customer>();
 	 }
 	
 	}
+	@Test
 	@Then("the customer should see the username is already used")
 	public void theCustomerShouldSeeTheUserNameIsAlreadyUsed() {
 		
 		if(usernameF==1) {
-			assertTrue(usernameF==1);
+			
 			System.out.println("username is already used");
 		}
+		assertEquals(1,usernameF);
 	}
 
 	
@@ -59,10 +64,12 @@ List <Customer> customers = new ArrayList <Customer>();
 		 }
 	
 	}
+	
+	@Test
 	@Then("the customer should see the user e is already used")
 	public void theCustomerShouldSeeTheUserEIsAlreadyUsed() {
 		if(emailF==1) {
-			assertTrue(emailF==1);
+			assertEquals(1,emailF);
 			System.out.println("email is already used");
 		}
 	}
@@ -77,10 +84,12 @@ List <Customer> customers = new ArrayList <Customer>();
 		 }
 	    
 	}
+	
+	@Test
 	@Then("the customer should see wrong email syntax")
 	public void theCustomerShouldSeeWrongEmailSyntax() {
 		if(emailF==1) {
-			assertTrue(emailF==1);
+			assertEquals(1,emailF);
 			System.out.println("Wrong email syntax");
 		}
 	}
@@ -94,10 +103,12 @@ List <Customer> customers = new ArrayList <Customer>();
 			passF=1;
 		 }
 	}
+	
+	@Test
 	@Then("the customer should see weak password")
 	public void theCustomerShouldSeeWeakPassword() {
 		if(passF==1) {
-			assertTrue(passF==1);
+			assertEquals(1,passF);
 			System.out.println("Weak password");
 		}
 	}
@@ -130,10 +141,13 @@ List <Customer> customers = new ArrayList <Customer>();
 		}
 	 
 	}
+	@Test
 	@Then("the customer account is created")
 	public void theCustomerAccountIsCreated() {
   if(passF==0 && emailF==0 && usernameF==0) {
-	  assertTrue(passF==0 && emailF==0 && usernameF==0);
+	  
+	  boolean flag = (passF==0 && emailF==0 && usernameF==0);
+	  assertTrue(flag);
 	  System.out.println("Welcome to your account");
   }
 	}

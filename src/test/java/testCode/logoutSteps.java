@@ -2,6 +2,8 @@ package testCode;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,6 +21,8 @@ public class logoutSteps {
 	public void iTypeLogout() {
 		logout = true;
 	}
+	
+	@Test
 	@Then("I should see Logout successfully from the Beauty Center Website")
 	public void iShouldSeeLogoutSuccessfullyFromTheBeautyCenterWebsite() {
 		if(logout)

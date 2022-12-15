@@ -3,12 +3,6 @@ package mainCode;
 import java.time.LocalDate;
 
 
-import java.time.LocalDate;
-
-import mainCode.Appointment;
-import mainCode.Customer;
-import mainCode.MainSystem;
-import mainCode.Visit;
 
 
 	public class Employee extends User {
