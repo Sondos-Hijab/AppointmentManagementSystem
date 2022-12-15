@@ -1,4 +1,4 @@
-package mainCode;
+package main_code;
 
 public class Story {
 	private String StoryId;

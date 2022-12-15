@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,10 +10,10 @@ import org.junit.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Admin;
-import mainCode.Customer;
-import mainCode.Employee;
-import mainCode.User;
+import main_code.Admin;
+import main_code.Customer;
+import main_code.Employee;
+import main_code.User;
 
 
 public class loginSteps {
@@ -95,7 +95,6 @@ public class loginSteps {
 		
 	}
 	
-	@Test
 	@Then("I should see password is incorrect")
 	public void iShouldSeePasswordIsIncorrect() {
 		if(case1) {
@@ -116,7 +115,6 @@ public class loginSteps {
 		}
 	}
 	
-	@Test
 	@Then("I should see password and username are incorrect")
 	public void iShouldSeePasswordAndUsernameAreIncorrect() {
 		if(case2) {
@@ -157,7 +155,6 @@ public class loginSteps {
 		}
 	}
 
-	@Test
 	@Then("I should see this message Login successful for admin")
 	public void iShouldSeeThisMessageLoginSuccessfulForAdmin() {
 		if(case4) {
@@ -178,7 +175,7 @@ public class loginSteps {
 		}
 	}
 	
-	@Test
+	
 	@Then("I should see this message Login successful for customer")
 	public void iShouldSeeThisMessageLoginSuccessfulForCustomer() {
 		if(case5) {
@@ -200,7 +197,7 @@ public class loginSteps {
 		}
 	}
 	
-	@Test
+	
 	@Then("I should see this message Login successful for employee")
 	public void iShouldSeeThisMessageLoginSuccessfulForEmployee() {
 		if(case6) {

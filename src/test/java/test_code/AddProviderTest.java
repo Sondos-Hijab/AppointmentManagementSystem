@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,11 @@ import java.util.List;
 import org.junit.Test;
 
 import io.cucumber.java.en.*;
-import mainCode.Providers;
+import main_code.Admin;
+import main_code.MainSystem;
+import main_code.Providers;
+
 import static org.junit.Assert.*;
-import mainCode.Admin;
-import mainCode.MainSystem;
 public class AddProviderTest {
 	static int addF=0;
 	Providers provider=new Providers("1","sephora");
@@ -28,7 +29,7 @@ public class AddProviderTest {
 	 }
 	}
 	
-	@Test
+
 	@Then("Admin should see wrong id")
 	public void adminShouldSeeWrongId() {
 	   if(addF==1) {
@@ -52,7 +53,7 @@ public class AddProviderTest {
 		
 	}
 	
-	@Test
+
 	@Then("Admin should see Provider added successfully")
 	public void adminShouldSeeProviderAddedSuccessfully() {
 		if(addF==0) {

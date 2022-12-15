@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,8 +10,8 @@ import org.junit.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Admin;
-import mainCode.Service;
+import main_code.Admin;
+import main_code.Service;
 
 public class editOrDeleteService {
 
@@ -54,7 +54,6 @@ public class editOrDeleteService {
 		}
 	}
 
-	@Test
 	@Then("I should see this message the number for the service Id is incorrect")
 	public void iShouldSeeThisMessageTheNumberForTheServiceIdIsIncorrect() {
 		if (case1) {
@@ -91,7 +90,6 @@ public class editOrDeleteService {
 
 	}
 
-	@Test
 	@Then("I should see successful deleting")
 	public void iShouldSeeSuccessfulDeleting() {
 		if (case2) {
@@ -100,7 +98,6 @@ public class editOrDeleteService {
 		}
 	}
 
-	@Test
 	@Then("I should see successful editing")
 	public void iShouldSeeSuccessfulEditing() {
 		if (case3) {

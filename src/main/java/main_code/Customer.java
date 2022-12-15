@@ -1,8 +1,9 @@
-package mainCode;
+package main_code;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-import mainCode.Customer;
+
+import main_code.Customer;
 
 
 public class Customer extends User {

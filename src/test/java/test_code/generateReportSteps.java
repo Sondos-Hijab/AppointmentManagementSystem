@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.*;
 
@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Admin;
-import mainCode.Appointment;
-import mainCode.Customer;
-import mainCode.Employee;
-import mainCode.MainSystem;
-import mainCode.Service;
-import mainCode.Visit;
+import main_code.Admin;
+import main_code.Appointment;
+import main_code.Customer;
+import main_code.Employee;
+import main_code.MainSystem;
+import main_code.Service;
+import main_code.Visit;
 
 public class generateReportSteps {
 
@@ -82,7 +82,6 @@ public class generateReportSteps {
 		scenario1 = Admin.generateCustomersReport(mainsystem);
 	}
 	
-	@Test
 	@Then("The system will generate a report about the customers")
 	public void theSystemWillGenerateAReportAboutTheCustomers() {
 	    assertTrue(scenario1);
@@ -94,7 +93,6 @@ public class generateReportSteps {
 		scenario2 = Admin.generateEmployeesReport(mainsystem);
 	}
 	
-	@Test
 	@Then("The system will generate a report about the employees")
 	public void theSystemWillGenerateAReportAboutTheEmployees() {
 		assertTrue(scenario2);
@@ -106,7 +104,6 @@ public class generateReportSteps {
 		scenario3 = Admin.generateAppointmentsReport(mainsystem);
 	}
 	
-	@Test
 	@Then("The system will generate a report about the appointments")
 	public void theSystemWillGenerateAReportAboutTheAppointments() {
 		assertTrue(scenario3);
@@ -118,7 +115,6 @@ public class generateReportSteps {
 		scenario4 = Admin.generateVisitsReport(mainsystem);
 	}
 	
-	@Test
 	@Then("The system will generate a report about the visits")
 	public void theSystemWillGenerateAReportAboutTheVisits() {
 		assertTrue(scenario4);
@@ -131,7 +127,6 @@ public class generateReportSteps {
 		scenario5 = Admin.generateServicesReport(mainsystem);
 	}
 	
-	@Test
 	@Then("The system will generate a report about the services")
 	public void theSystemWillGenerateAReportAboutTheServices() {
 		assertTrue(scenario5);
@@ -143,7 +138,6 @@ public class generateReportSteps {
 		scenario6 = Admin.generateGeneralReport(mainsystem);
 	}
 	
-	@Test
 	@Then("The system will generate a general report")
 	public void theSystemWillGenerateAGeneralReport() {
 		assertTrue(scenario6);

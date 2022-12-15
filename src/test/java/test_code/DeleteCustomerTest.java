@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import io.cucumber.java.en.*;
-import mainCode.*;
+import main_code.*;
 
 public class DeleteCustomerTest {
 
@@ -29,7 +29,6 @@ public class DeleteCustomerTest {
 	   }
 	}
 	
-	@Test
 	@Then("i should see the id doesn't exisit")
 	public void iShouldSeeTheIdDoesnTExisit() {
 	    if(deleteF==1) {
@@ -52,7 +51,6 @@ public class DeleteCustomerTest {
 		   }
 	}
 	
-	@Test
 	@Then("deleted successfully")
 	public void deletedSuccessfully() {
 		if(deleteF==0) {

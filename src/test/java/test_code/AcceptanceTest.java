@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import org.junit.runner.RunWith;
 
@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 //plugin= {"html:target/cucumber/wikipedia.html"},
 monochrome=true,
 snippets=SnippetType.CAMELCASE,
-glue= {"testCode"})
+glue= {"test_code"})
 
 public class AcceptanceTest {
 

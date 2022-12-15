@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.*;
 
@@ -10,9 +10,9 @@ import org.junit.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Admin;
-import mainCode.Service;
-import mainCode.Employee;
+import main_code.Admin;
+import main_code.Employee;
+import main_code.Service;
 
 public class serviceSteps {
 	static List<Service> listOfServices = new ArrayList<Service>();
@@ -61,7 +61,6 @@ public class serviceSteps {
 		}
 	}
 	
-	@Test
 	@Then("I should see each employee provides only one service")
 	public void iShouldSeeEachEmployeeProvidesOnlyOneService() {
 		if (case1) {
@@ -89,7 +88,6 @@ public class serviceSteps {
 		}
 	}
 	
-	@Test
 	@Then("I should see the number for the employee Id is incorrect")
 	public void iShouldSeeTheNumberForTheEmployeeIdIsIncorrect() {
 		if (case2) {
@@ -115,7 +113,6 @@ public class serviceSteps {
 
 	}
 	
-	@Test
 	@Then("I should see the service you are trying to add is already added")
 	public void iShouldSeeTheServiceYouAreTryingToAddIsAlreadyAdded() {
 		if (case3) {
@@ -144,7 +141,6 @@ public class serviceSteps {
 
 
 
-	@Test
 	@Then("I should see successful adding service")
 	public void iShouldSeeSuccessfulAddingService() {
 		if (case4) {

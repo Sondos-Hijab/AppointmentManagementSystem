@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.assertTrue;
 
@@ -22,7 +22,6 @@ public class logoutSteps {
 		logout = true;
 	}
 	
-	@Test
 	@Then("I should see Logout successfully from the Beauty Center Website")
 	public void iShouldSeeLogoutSuccessfullyFromTheBeautyCenterWebsite() {
 		if(logout)

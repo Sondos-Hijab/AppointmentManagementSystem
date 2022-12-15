@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import io.cucumber.java.en.*;
-import mainCode.*;
+import main_code.*;
 
 public class EditCustomerInfo {
 static int passF=0;
@@ -33,7 +33,6 @@ List <Customer> customers = new ArrayList <Customer>();
 	   }
 	}
 	
-	@Test
 	@Then("the customer should see incorrect password")
 	public void theCustomerShouldSeeIncorrectPassword() {
 	  if(passF==1) {
@@ -57,7 +56,6 @@ List <Customer> customers = new ArrayList <Customer>();
 		   }
 	}
 	
-	@Test
 	@Then("the customer should see the email has been edited")
 	public void theCustomerShouldSeeTheEmailHasBeenEdited() {
 		  if(passF==0) {
@@ -81,7 +79,6 @@ List <Customer> customers = new ArrayList <Customer>();
 		   }
 	}
 	
-	@Test
 	@Then("the customer should see the password has been edited")
 	public void theCustomerShouldSeeThePasswordHasBeenEdited() {
 		 if(passF==0) {
@@ -106,7 +103,6 @@ List <Customer> customers = new ArrayList <Customer>();
 	}
 	}
 	
-	@Test
 	@Then("the customer should see the phone number has been edited")
 	public void theCustomerShouldSeeThePhoneNumberHasBeenEdited() {
 		 if(passF==0) {

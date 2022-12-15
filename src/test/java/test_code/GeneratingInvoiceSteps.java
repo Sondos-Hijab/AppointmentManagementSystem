@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.*;
 
@@ -7,9 +7,9 @@ import org.junit.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Appointment;
-import mainCode.Customer;
-import mainCode.Service;
+import main_code.Appointment;
+import main_code.Customer;
+import main_code.Service;
 
 public class GeneratingInvoiceSteps {
 
@@ -28,8 +28,7 @@ public class GeneratingInvoiceSteps {
 	public void customerAsksForGeneratingAnInvoiceAndHeSheDoesnTHaveAnyAppointmentsYet() {
 	    
 	}
-	
-	@Test
+
 	@Then("The system will tell him\\/her that he\\/she should add an appointment first")
 	public void theSystemWillTellHimHerThatHeSheShouldAddAnAppointmentFirst() {
 	    assertTrue(!customer.generateAnInvoice());
@@ -46,7 +45,6 @@ public class GeneratingInvoiceSteps {
 	   
 	}
 	
-	@Test
 	@Then("the customer should see the generated invoice for the appointment")
 	public void theCustomerShouldSeeTheGeneratedInvoiceForTheAppointment() {
 		 assertTrue(customer.generateAnInvoice());
@@ -65,7 +63,6 @@ public class GeneratingInvoiceSteps {
 	    
 	}
 	
-	@Test
 	@Then("the customer should see the generated invoice for the multiple appointment")
 	public void theCustomerShouldSeeTheGeneratedInvoiceForTheMultipleAppointment() {
 		 assertTrue(customer.generateAnInvoice());

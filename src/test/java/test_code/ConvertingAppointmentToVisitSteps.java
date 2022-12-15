@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.*;
 
@@ -9,12 +9,12 @@ import org.junit.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import mainCode.Appointment;
-import mainCode.Customer;
-import mainCode.Employee;
-import mainCode.MainSystem;
-import mainCode.Service;
-import mainCode.Visit;
+import main_code.Appointment;
+import main_code.Customer;
+import main_code.Employee;
+import main_code.MainSystem;
+import main_code.Service;
+import main_code.Visit;
 
 public class ConvertingAppointmentToVisitSteps {
 
@@ -60,7 +60,6 @@ public class ConvertingAppointmentToVisitSteps {
 		
 	}
 	
-	@Test
 	@Then("The employee should see username is not found")
 	public void theEmployeeShouldSeeUsernameIsNotFound() {
 		System.out.println("\n \n \n");
@@ -81,7 +80,6 @@ public class ConvertingAppointmentToVisitSteps {
 		feedback = "The services you provide are good!";
 	}
 	
-	@Test
 	@Then("the employee should see appointment id is wrong")
 	public void theEmployeeShouldSeeAppointmentIdIsWrong() {
 		System.out.println("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);
@@ -106,7 +104,6 @@ public class ConvertingAppointmentToVisitSteps {
 		
 	}
 	
-	@Test
 	@Then("the employee should see can't convert it to a visit because it should be today")
 	public void theEmployeeShouldSeeCanTConvertItToAVisitBecauseItShouldBeToday() {
 		assertTrue(!employee.convertAppointmentToVisit(cuctomerUserName,appointmentId,feedback, mainsystem));
@@ -123,7 +120,6 @@ public class ConvertingAppointmentToVisitSteps {
 		feedback = "The services you provide are good!";
 	}
 	
-	@Test
 	@Then("A visit for the appointment will be added to the customer visits record and to the system visits record")
 	public void aVisitForTheAppointmentWillBeAddedToTheCustomerVisitsRecordAndToTheSystemVisitsRecord() {
 		System.out.println("Customer Username: " + cuctomerUserName + " Appointment Id: " +appointmentId +" Feedback: " +feedback);

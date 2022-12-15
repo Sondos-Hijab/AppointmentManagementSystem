@@ -1,5 +1,5 @@
 
-  package mainCode;
+  package main_code;
   
   public class Visit { 
 	  

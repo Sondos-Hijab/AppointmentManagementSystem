@@ -1,4 +1,4 @@
-package testCode;
+package test_code;
 
 import static org.junit.Assert.*;
 
@@ -8,8 +8,8 @@ import java.util.List;
 import org.junit.Test;
 
 import io.cucumber.java.en.*;
-import mainCode.Customer;
-import mainCode.MainSystem;
+import main_code.Customer;
+import main_code.MainSystem;
 
 public class RegisterTest {
 	
@@ -43,15 +43,15 @@ List <Customer> customers = new ArrayList <Customer>();
 	 }
 	
 	}
-	@Test
+
 	@Then("the customer should see the username is already used")
 	public void theCustomerShouldSeeTheUserNameIsAlreadyUsed() {
 		
 		if(usernameF==1) {
-			
+			assertEquals( 1 , usernameF);
 			System.out.println("username is already used");
 		}
-		assertEquals(1,usernameF);
+		
 	}
 
 	
@@ -65,7 +65,6 @@ List <Customer> customers = new ArrayList <Customer>();
 	
 	}
 	
-	@Test
 	@Then("the customer should see the user e is already used")
 	public void theCustomerShouldSeeTheUserEIsAlreadyUsed() {
 		if(emailF==1) {
@@ -85,7 +84,6 @@ List <Customer> customers = new ArrayList <Customer>();
 	    
 	}
 	
-	@Test
 	@Then("the customer should see wrong email syntax")
 	public void theCustomerShouldSeeWrongEmailSyntax() {
 		if(emailF==1) {
@@ -104,7 +102,6 @@ List <Customer> customers = new ArrayList <Customer>();
 		 }
 	}
 	
-	@Test
 	@Then("the customer should see weak password")
 	public void theCustomerShouldSeeWeakPassword() {
 		if(passF==1) {
@@ -141,7 +138,7 @@ List <Customer> customers = new ArrayList <Customer>();
 		}
 	 
 	}
-	@Test
+
 	@Then("the customer account is created")
 	public void theCustomerAccountIsCreated() {
   if(passF==0 && emailF==0 && usernameF==0) {
