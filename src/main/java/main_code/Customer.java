@@ -168,7 +168,8 @@ public class Customer extends User {
 		}
 		return false;
 	}
-		
+	
+	
 	public boolean checkIfThereIsAConflict(MainSystem mainsystem, Appointment appointment) {
 		for(int i=0;i<mainsystem.getSystemAppointments().size();i++) {
 			if(mainsystem.getSystemAppointments().get(i).getYear() == appointment.getYear() && 
@@ -279,28 +280,31 @@ public class Customer extends User {
 
 
 
-	public boolean editAppointment(String appointmentId, int startingHour, int year, int month, int day, MainSystem mainsystem) {
-		boolean yearFlag = true;
-		boolean monthFlag = true;
-		boolean dayFlag = true;
-		boolean hourFlag = true;
+	public boolean editAppointmentHelper(int year, int month, int day, MainSystem mainsystem) {
+		if(this.checkIfTheEnteredYearNumberIsWrong(year, mainsystem)) {
+			logger.info("Wrong year number!");
+			return false;
+		}
+		else if(this.checkIfTheEnteredMonthNumberIsWrong(mainsystem, year, month)) {
+			logger.info("Wrong month number!");
+			return false;
+		}
 
+		else if(this.checkIfTheEnteredDayNumberIsWrong(mainsystem, year, month, day)) {
+			logger.info("Wrong day number!");
+			return false;
+		}
+		return true;
+	}
+	public boolean editAppointment(String appointmentId, int startingHour, int year, int month, int day, MainSystem mainsystem) {
+
+		
+		if(!editAppointmentHelper(year, month,  day,  mainsystem)) return false;
 		for(int i=0;i<this.getAppointments().size();i++) {
 
 			Appointment appointment = this.getAppointments().get(i);
 			if(appointment.getId().equals(appointmentId)) {
-				if(this.checkIfTheEnteredYearNumberIsWrong(year, mainsystem)) {
-					yearFlag = false;
-				}
-				if(this.checkIfTheEnteredMonthNumberIsWrong(mainsystem, year, month)) {
-					monthFlag = false;
-				}
-				if(this.checkIfTheEnteredMonthNumberIsWrong(mainsystem, year, month)) {
-					monthFlag = false;
-				}
-				if(this.checkIfTheEnteredDayNumberIsWrong(mainsystem, year, month, day)) {
-					dayFlag = false;
-				}
+				
 				Service service = new Service();
 				//chosen service
 				for(int j=0;j<mainsystem.getServices().size();j++) {
@@ -309,47 +313,26 @@ public class Customer extends User {
 					}
 				}
 				if(this.checkIfTheEnteredHourNumberIsWrong(mainsystem, service, startingHour)) {
-					hourFlag = false;
+					logger.info("Wrong starting hour number!");
+					return false;
 				}
 				
-				if(yearFlag && monthFlag && dayFlag && hourFlag) {
+				
 					appointment.setYear(year);
 					appointment.setMonth(month);
 					appointment.setDay(day);
 					appointment.setStartingHour(startingHour);
 					logger.info("edited Successfully!\n");
 					return true;
-				}
-			}
-			
-			if(!yearFlag || !monthFlag || !dayFlag || !hourFlag) {
-				break;
+				
 			}
 			
 			
-		}
-		
-		if(!yearFlag) {
-			logger.info("Wrong year number!");
-		}
-		if(!monthFlag) {
-			logger.info("Wrong month number!");
-		}
-		if(!dayFlag) {
-			logger.info("Wrong day number!");
-		}
-		if(!hourFlag) {
-			logger.info("Wrong starting hour number!");
-		}
-		
-		if(!yearFlag || !monthFlag || !dayFlag || !hourFlag) {
-		   return false;
 		}
 
-		else {
-			logger.info("Wrong appointment id! can't edit");
-			return false;
-		}
+		logger.info("Wrong appointment id! can't edit");
+		return false;
+
 		
 	}
 

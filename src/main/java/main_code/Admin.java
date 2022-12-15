@@ -89,7 +89,7 @@ public class Admin extends User{
 	public void deleteServiceFromTheServiceList(String serviceId, List<Service> listOfServices) {
 		
 		if(!listOfServices.isEmpty()) {
-			for(int i=0; i<listOfServices.size(); i++) 
+			for(int i=listOfServices.size()-1; i>=0; i--) 
 			{
 				if(listOfServices.get(i).getServiceId().equals(serviceId)) {
 					listOfServices.remove(i);
